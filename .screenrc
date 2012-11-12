@@ -1,0 +1,45 @@
+#########################
+# 追加設定
+#########################
+# 256色設定
+defbce             on
+term               xterm-256color
+termcapinfo xterm* 'Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+# screen内で日本語ロケールに変更と文字設定
+setenv LANG ja_JP.UTF-8
+defkanji utf-8
+defencoding utf-8
+encoding utf-8 utf-8
+# modifier
+escape ^Tt
+# プロセスが死んでもこのキーを押すまでウインドウを残せる
+#zombie ^Jj
+# ウインドウ設定
+caption always "%{= wb} %-w%{=b dr}%n%f%t%{-}%+w %= %{=b wk} [%l] %{=b dg}%Y/%m/%d %c:%s"
+# スクロールで残すバッファ行数
+defscrollback 10000
+
+# keymap
+## window resize
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
+## windowのリスト表示
+bind w windowlist -b
+## 以下文字コード
+bind u eval "encoding UTF-8"
+bind e eval "encoding eucJP"
+bind s eval "encoding SJIS"
+bind j eval "encoding jis"
+# screenが出力するメッセージのカラー設定
+sorendition "+rb .G"
+# default screen
+chdir
+# manやlessやviで開いた画面がクリアされる
+altscreen on
+# マウスでスクロールが可能になる
+termcapinfo xterm* ti@:te@
+# default shell
+shell /bin/zsh
+screen -t zsh 0 zsh -l

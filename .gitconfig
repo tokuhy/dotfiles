@@ -1,0 +1,7 @@
+[user]
+	name = Fumiaki Tokuyama
+	email = tokuhy@gmail.com
+[core]
+	quotepath = false
+[color]
+	ui = auto
