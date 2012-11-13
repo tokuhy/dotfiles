@@ -1,0 +1,71 @@
+" 3.5 (created: 2012/08/04 00:41:20)
+
+source! "C:\\Users\\tokuyama\\_vimperatorrc.local"
+
+" vim: set ft=vimperator:
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 基本設定
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" title設定
+set titlestring=Firefox
+" ページ全体で検索語を強調表示
+set hlsearch
+" ビープ音を鳴らさずビジュアルベルを使用
+set visualbell
+" 検索は大文字小文字を無視する
+set ignorecase
+" コマンドラインモードではIMEをoff
+style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" キーマップ設定
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" j/kの移動量を5倍に
+noremap j 5<C-e>
+noremap k 5<C-y>
+" <BS>で「戻る」
+noremap <BS> H
+" <S-Left>/<S-Right>で現在のタブの位置変更
+map <S-Left>  :tabmove! -1<CR>
+map <S-Right> :tabmove! +1<CR>
+" <A-r>でFirefoxを再起動
+map <A-r> :restart<CR>
+" <A-h>でヘルプを新しいタブに表示
+map <A-h> :tabnew<CR>:help<CR>
+" insertモードで<C-h>が誤爆する場合があるので設定を明示
+inoremap <C-h>   <BS>
+" ブックマークに追加するの無効
+map a <NOP>
+"" for gmarks
+" 登録
+noremap <A-d> <S-Esc><C-d><S-Esc>
+
+"" windowsのキーマップ(コピーや全選択)を有効にする
+" <S-Esc>で一時的に無効にして戻す
+" Ctrl+a (全選択)
+"noremap <C-a> <S-Esc><C-a><S-Esc>
+inoremap <C-a> <S-Esc><C-a><S-Esc>
+cnoremap <C-a> <S-Esc><C-a><S-Esc>
+" Ctrl+z (アンドゥ)
+"noremap <C-z> <S-Esc><C-z><S-Esc>
+inoremap <C-z> <S-Esc><C-z><S-Esc>
+cnoremap <C-z> <S-Esc><C-z><S-Esc>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" プラグイン設定
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 未プラグイン化スクリプト
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OS依存
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Windows
+" 設定再読み込み
+"map S :source ~/_vimperatorrc<CR>
+
+"" Mac
+map S :source ~/.vimperatorrc<CR>
