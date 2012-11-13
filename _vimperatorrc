@@ -1,5 +1,7 @@
 " 3.5 (created: 2012/08/04 00:41:20)
 
+source! "C:\\Users\\tokuyama\\_vimperatorrc.local"
+
 " vim: set ft=vimperator:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,7 +73,7 @@ cnoremap <C-z> <S-Esc><C-z><S-Esc>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Windows
 " 設定再読み込み
-"map S :source ~/_vimperatorrc<CR>
+map S :source ~/_vimperatorrc<CR>
 
 "" Mac
-map S :source ~/.vimperatorrc<CR>
+"map S :source ~/.vimperatorrc<CR>
