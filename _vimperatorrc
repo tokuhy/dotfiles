@@ -41,8 +41,6 @@ map <S-Right> :tabmove! +1<CR>
 map <A-r> :restart<CR>
 " <A-h>でヘルプを新しいタブに表示
 map <A-h> :tabnew<CR>:help<CR>
-" insertモードで<C-h>が誤爆する場合があるので設定を明示
-inoremap <C-h>   <BS>
 " ブックマークに追加するの無効
 map a <NOP>
 "" for gmarks
