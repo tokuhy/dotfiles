@@ -1,0 +1,8 @@
+#!/bin/sh
+
+OStype=`uname`
+
+case $OStype in
+    "Linux"|"CYGWIN_NT-6.1-WOW64")    cat /proc/loadavg | awk '{print $1, $2, $3}' ;;
+    "Darwin")   top -l 1 | head -3 | tail -1 | sed -e 's/,//g' | awk '{print $3, $4, $5}' ;;
+esac
