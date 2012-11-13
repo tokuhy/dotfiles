@@ -4,6 +4,9 @@ export LANG=ja_JP.UTF-8
 # 環境設定
 export PAGER=less
 
+# PATH(macのhomebrew用)
+export PATH=/usr/local/bin:$PATH
+
 # editor
 export EDITOR=/usr/bin/vim
 
