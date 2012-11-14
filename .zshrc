@@ -104,19 +104,23 @@ solaris*)
     ;;
 esac
 
-alias la="ls -a"
+alias la="ls -al"
 alias lf="ls -F"
-alias ll="ls -al"
-
+alias ll="ls -l"
 alias du="du -h"
 alias df="df -h"
-
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
 alias vi="vim"
+# tmux 256色対応
+alias tmux="tmux -2"
 
 case "${OSTYPE}" in
 darwin*)
     alias updateports="sudo port selfupdate; sudo port outdated"
     alias portupgrade="sudo port upgrade installed"
+    alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
     ;;
 freebsd*)
     case ${UID} in
