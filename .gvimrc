@@ -66,7 +66,12 @@ set wildmenu wildmode=list:full
 set fileformats=unix,dos,mac
 " 常にタブ表示
 set showtabline=2
-
+" ウインドウの幅
+set columns=110
+" ウインドウの高さ
+set lines=45
+" 自動改行無効
+set formatoptions=q
 " ステータスラインの設定
 " 0:表示しない 1:ウインドウが2つ以上の場合のみ 2:常に表示
 set laststatus=2
@@ -98,18 +103,12 @@ map     <space>w    <ESC>:bd<CR>
 "" 以下OS依存
 " Windows
 if has('win32')
-    " _gvimrcの再読み込み
-    nnoremap <Space>.   :<C-u>source $VIM\_gvimrc<CR>
+    " .gvimrcの再読み込み
+    nnoremap <Space>.   :<C-u>source $HOME\.gvimrc<CR>
     " フォント設定
     set guifont=Migu_1M:h12:cSHIFTJIS
     " クリップボードをWindowsと連携
     "set clipboard=unnamed
-    " 自動改行無効
-    set formatoptions=q
-    " ウインドウの幅
-    set columns=110
-    " ウインドウの高さ
-    set lines=45
     " バックアップファイルの作成場所
     set backupdir=C:\vim_tmp
     " スワップファイルの作成場所
@@ -117,4 +116,9 @@ if has('win32')
     " 自動的にファイルを読み込むパスを設定 ~/vimfiles/userautoload/*.vim
     set runtimepath+=~/vimfiles/
     runtime! userautoload/*.vim
+elseif has('mac')
+    " バックアップファイルの作成場所
+    set backupdir=~/vim_tmp
+    " スワップファイルの作成場所
+    set directory=~/vim_tmp
 endif
