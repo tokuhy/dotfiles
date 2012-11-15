@@ -5,7 +5,7 @@ export LANG=ja_JP.UTF-8
 export PAGER=less
 
 # PATH(macのhomebrew用)
-export PATH=/usr/local/bin:$PATH
+export PATH=~/bin:/usr/local/bin:$PATH
 
 # editor
 export EDITOR=/usr/bin/vim
@@ -121,6 +121,9 @@ darwin*)
     alias updateports="sudo port selfupdate; sudo port outdated"
     alias portupgrade="sudo port upgrade installed"
     alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+    alias tm="tmuxx"
+    alias tma="tmux attach"
+    alias tml="tmux list-window"
     ;;
 freebsd*)
     case ${UID} in

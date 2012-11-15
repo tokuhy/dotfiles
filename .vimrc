@@ -9,6 +9,7 @@ colorscheme desert256
 " カーソルラインの強調表示を有効化
 set cursorline
 " カーソルラインカラー
+highlight CursorLine cterm=NONE guibg=NONE
 highlight CursorLine ctermbg=darkgray guibg=gray10
 " タブ文字、行末など不可視文字を表示する
 set list
