@@ -103,19 +103,18 @@ if has('win32')
     nnoremap <Space>.   :<C-u>source $VIM\_gvimrc<CR>
     " フォント設定
     set guifont=Migu_1M:h12:cSHIFTJIS
-    " クリップボードをWindowsと連携
-    "set clipboard=unnamed
     " 自動改行無効
     set formatoptions=q
     " ウインドウの幅
     set columns=110
     " ウインドウの高さ
     set lines=45
-    " バックアップファイルの作成場所
-    set backupdir=C:\vim_tmp
-    " スワップファイルの作成場所
-    set directory=C:\vim_tmp
     " 自動的にファイルを読み込むパスを設定 ~/vimfiles/userautoload/*.vim
     set runtimepath+=~/vimfiles/
     runtime! userautoload/*.vim
+elseif has('mac')
+    " バックアップファイルの作成場所
+    set backupdir=~/vim_tmp
+    " スワップファイルの作成場所
+    set directory=~/vim_tmp
 endif

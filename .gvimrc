@@ -108,8 +108,6 @@ if has('win32')
     nnoremap <Space>.   :<C-u>source $HOME\.gvimrc<CR>
     " フォント設定
     set guifont=Migu_1M:h12:cSHIFTJIS
-    " クリップボードをWindowsと連携
-    "set clipboard=unnamed
     " バックアップファイルの作成場所
     set backupdir=C:\vim_tmp
     " スワップファイルの作成場所
