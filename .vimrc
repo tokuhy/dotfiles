@@ -33,9 +33,10 @@ syntax on
 colorscheme desert256
 " カーソルラインの強調表示を有効化
 set cursorline
+set cursorcolumn
 " カーソルラインカラー
-highlight CursorLine cterm=NONE guibg=NONE
-highlight CursorLine ctermbg=darkgray guibg=gray10
+highlight CursorLine cterm=NONE guibg=NONE ctermbg=233 guibg=gray10
+highlight CursorColumn cterm=NONE guibg=NONE ctermbg=232 guibg=gray10
 " タブ文字、行末など不可視文字を表示する
 set list
 " listで表示される文字のフォーマットを指定する
