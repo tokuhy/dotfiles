@@ -7,7 +7,7 @@ if [[ ( $OSTYPE == darwin* ) && ( -x $(which reattach-to-user-namespace 2>/dev/n
 	# on OS X force tmux's default command to spawn a shell in the user's namespace
 	# https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 	tweaked_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
-	tweaked_config=$(cat $HOME/.tmux.conf <(echo 'bind C-q run-shell "reattach-to-user-namespace tmux-pbcopy"'))
+	tweaked_config=$(cat $HOME/.tmux.conf <(echo 'bind C-y run-shell "reattach-to-user-namespace tmux-pbcopy"'))
 
 	tmux attach || tmux -f <(echo "$tweaked_config") new-session
 else
