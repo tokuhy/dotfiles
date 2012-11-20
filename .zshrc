@@ -21,7 +21,7 @@ case ${UID} in
     SPROMPT="%B%{${fg[cyan]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="%B%{${fg[red]}%}${USERNAME}@${HOST%%.*} $%{${reset_color}%}%b "
+    PROMPT="%B%{${fg[black]}%}${bg[green]}${USERNAME}@${HOST%%.*} $%{${reset_color}%}%b "
     RPROMPT="%B%{${fg[cyan]}%}%/#%{${reset_color}%}%b "
     PROMPT2="%{${fg[cyan]}%}%_%%%{${reset_color}%} "
     SPROMPT="%{${fg[cyan]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
