@@ -23,6 +23,7 @@ NeoBundle 'Shougo/unite.vim.git'
 
 "" vim-scripts
 NeoBundle 'project.tar.gz'
+NeoBundle 'sudo.vim'
 
 filetype plugin on
 filetype indent on
@@ -39,8 +40,8 @@ colorscheme desert256
 set cursorline
 set cursorcolumn
 " カーソルラインカラー
-highlight CursorLine cterm=NONE guibg=NONE ctermbg=233 guibg=gray10
-highlight CursorColumn cterm=NONE guibg=NONE ctermbg=232 guibg=gray10
+highlight CursorLine cterm=NONE guibg=NONE ctermbg=234 guibg=gray10
+highlight CursorColumn cterm=NONE guibg=NONE ctermbg=234 guibg=gray10
 " タブ文字、行末など不可視文字を表示する
 set list
 " listで表示される文字のフォーマットを指定する
@@ -97,6 +98,12 @@ set wildmenu wildmode=list:full
 set fileformats=unix,dos,mac
 " 常にタブ表示
 set showtabline=2
+" タイトルを表示
+set title
+" 開始時デフォルトはpaste mode
+set paste
+" pasteモードの切り替え
+set pastetoggle=<F12>
 
 " ステータスラインの設定
 " 0:表示しない 1:ウインドウが2つ以上の場合のみ 2:常に表示
@@ -108,12 +115,10 @@ set statusline=%F%m%r%h%w\ %=[FMT=%{&ff}]\ [ENC=%{&fileencoding}]\ [TYPE=%Y]\ [P
 set cmdheight=2
 " コマンドをステータス行に表示
 set showcmd
-" タイトルを表示
-set title
-" pasteモードの切り替え
-set pastetoggle=<F12>
 
-"" キーバインド
+"""""""""""""""
+" キーバインド
+"""""""""""""""
 " バッファファイルの逆切り替え
 nmap    <C-p>       <ESC>:bp<CR>
 map     <F2>        <ESC>:bp<CR>
@@ -125,8 +130,34 @@ map     <space>n    <ESC>:bn<CR>
 " 開いているファイルの終了
 map     <F4>        <ESC>:bd<CR>
 map     <space>w    <ESC>:bd<CR>
+" 検索結果ハイライト解除
+nmap    <ESC><ESC>  :nohlsearch<CR>
+" 行番号表示切り替え
+map     <F10>       :set number!<CR>
 
-"" 以下OS依存
+"""""""""""""""
+" コマンド実行
+"""""""""""""""
+" 保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//ge
+
+" 行番号と相対行番号の切替
+if version >= 703
+  nnoremap   <F11> :<C-u>ToggleNumber<CR>
+  command! -nargs=0 ToggleNumber call ToggleNumberOption()
+
+  function! ToggleNumberOption()
+    if &number
+      set relativenumber
+    else
+      set number
+    endif
+  endfunction
+endif
+
+"""""""""
+" OS依存
+"""""""""
 " Windows
 if has('win32')
     " _gvimrcの再読み込み
@@ -143,6 +174,8 @@ if has('win32')
     set runtimepath+=~/vimfiles/
     runtime! userautoload/*.vim
 elseif has('mac')
+    " フォント設定
+    set guifont=Ricty\ Regular:h16
     " バックアップファイルの作成場所
     set backupdir=~/vim_tmp
     " スワップファイルの作成場所

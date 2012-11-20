@@ -10,8 +10,8 @@ colorscheme desert256
 set cursorline
 set cursorcolumn
 " カーソルラインカラー
-highlight CursorLine cterm=NONE guibg=NONE ctermbg=233 guibg=gray10
-highlight CursorColumn cterm=NONE guibg=NONE ctermbg=233 guibg=gray10
+highlight CursorLine cterm=NONE guibg=NONE ctermbg=234 guibg=gray10
+highlight CursorColumn cterm=NONE guibg=NONE ctermbg=234 guibg=gray10
 " タブ文字、行末など不可視文字を表示する
 set list
 " listで表示される文字のフォーマットを指定する
@@ -117,6 +117,8 @@ if has('win32')
     set runtimepath+=~/vimfiles/
     runtime! userautoload/*.vim
 elseif has('mac')
+    " フォント設定
+    set guifont=Ricty\ Regular:h16
     " バックアップファイルの作成場所
     set backupdir=~/vim_tmp
     " スワップファイルの作成場所

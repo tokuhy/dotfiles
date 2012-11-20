@@ -113,6 +113,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias vi="vim"
+# sudo のエイリアス対応
+alias sudo="sudo "
 # tmux 256色対応
 alias tmux="tmux -2"
 
