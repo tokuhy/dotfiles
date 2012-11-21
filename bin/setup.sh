@@ -4,7 +4,6 @@
 
 # home directory以下に展開するdotfileを列挙
 dotfiles="
-.ssh/config
 .zshrc
 .tmux.conf
 .vimrc
@@ -24,12 +23,16 @@ case $1 in
             ln -fs ~/dotfiles/$f ~/
         fi
     done
+    if [ -f ~/dotfiles/.ssh/config ];then
+        ln -fs ~/dotfiles/.ssh/config ~/.ssh/
+    fi
     ;;
 "uninstall")
     # 削除
     for f in $dotfiles;do
         rm -f ~/$f
     done
+    rm -f ~/.ssh/config
     ;;
 *)
     echo "option is [install/uninstall]"
