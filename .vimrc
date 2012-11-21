@@ -14,7 +14,7 @@ endif
 "NeoBundle 'Shougo/clang_complete.git'
 "NeoBundle 'Shougo/echodoc.git'
 NeoBundle 'Shougo/neocomplcache.git'
-"NeoBundle 'Shougo/neobundle.vim.git'
+NeoBundle 'Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/unite.vim.git'
 "NeoBundle 'Shougo/vim-vcs.git'
 "NeoBundle 'Shougo/vimfiler.git'
@@ -24,6 +24,7 @@ NeoBundle 'Shougo/unite.vim.git'
 "" vim-scripts
 NeoBundle 'project.tar.gz'
 NeoBundle 'sudo.vim'
+NeoBundle 'Lokaltog/vim-powerline'
 
 filetype plugin on
 filetype indent on
@@ -175,7 +176,9 @@ if has('win32')
     runtime! userautoload/*.vim
 elseif has('mac')
     " フォント設定
-    set guifont=Ricty\ Regular:h16
+    set guifont=Ricty_for_Powerline:h16
+    set guifontwide=Ricty:h16
+    let g:Powerline_symbols = 'fancy'
     " バックアップファイルの作成場所
     set backupdir=~/vim_tmp
     " スワップファイルの作成場所

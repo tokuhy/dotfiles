@@ -1,3 +1,34 @@
+"""""""""""""""""
+" プラグイン管理
+"""""""""""""""""
+set nocompatible
+filetype off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+"" github
+"NeoBundle 'Shougo/clang_complete.git'
+"NeoBundle 'Shougo/echodoc.git'
+NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neobundle.vim.git'
+NeoBundle 'Shougo/unite.vim.git'
+"NeoBundle 'Shougo/vim-vcs.git'
+"NeoBundle 'Shougo/vimfiler.git'
+"NeoBundle 'Shougo/vimshell.git'
+"NeoBundle 'Shougo/vinarise.git'
+
+"" vim-scripts
+NeoBundle 'project.tar.gz'
+NeoBundle 'sudo.vim'
+NeoBundle 'Lokaltog/vim-powerline'
+
+filetype plugin on
+filetype indent on
+
 """""""""""
 " 追加設定
 """""""""""
@@ -68,12 +99,13 @@ set wildmenu wildmode=list:full
 set fileformats=unix,dos,mac
 " 常にタブ表示
 set showtabline=2
-" ウインドウの幅
-set columns=110
-" ウインドウの高さ
-set lines=45
-" 自動改行無効
-set formatoptions=q
+" タイトルを表示
+set title
+" 開始時デフォルトはpaste mode
+set paste
+" pasteモードの切り替え
+set pastetoggle=<F12>
+
 " ステータスラインの設定
 " 0:表示しない 1:ウインドウが2つ以上の場合のみ 2:常に表示
 set laststatus=2
@@ -84,12 +116,10 @@ set statusline=%F%m%r%h%w\ %=[FMT=%{&ff}]\ [ENC=%{&fileencoding}]\ [TYPE=%Y]\ [P
 set cmdheight=2
 " コマンドをステータス行に表示
 set showcmd
-" タイトルを表示
-set title
-" pasteモードの切り替え
-set pastetoggle=<F12>
 
-"" キーバインド
+"""""""""""""""
+" キーバインド
+"""""""""""""""
 " バッファファイルの逆切り替え
 nmap    <C-p>       <ESC>:bp<CR>
 map     <F2>        <ESC>:bp<CR>
@@ -101,24 +131,65 @@ map     <space>n    <ESC>:bn<CR>
 " 開いているファイルの終了
 map     <F4>        <ESC>:bd<CR>
 map     <space>w    <ESC>:bd<CR>
+" 検索結果ハイライト解除
+nmap    <ESC><ESC>  :nohlsearch<CR>
+" 行番号表示切り替え
+map     <F10>       :set number!<CR>
 
-"" 以下OS依存
+"""""""""""""""
+" コマンド実行
+"""""""""""""""
+" 保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//ge
+
+" 行番号と相対行番号の切替
+if version >= 703
+  nnoremap   <F11> :<C-u>ToggleNumber<CR>
+  command! -nargs=0 ToggleNumber call ToggleNumberOption()
+
+  function! ToggleNumberOption()
+    if &number
+      set relativenumber
+    else
+      set number
+    endif
+  endfunction
+endif
+
+" インサートモードから抜けるときに自動でIMEをoff
+augroup InsModeAu
+    autocmd!
+    autocmd InsertEnter,CmdwinEnter * set noimdisable
+    autocmd InsertLeave,CmdwinLeave * set imdisable
+augroup END
+
+"""""""""
+" OS依存
+"""""""""
 " Windows
 if has('win32')
-    " .gvimrcの再読み込み
-    nnoremap <Space>.   :<C-u>source $HOME\.gvimrc<CR>
+    " _gvimrcの再読み込み
+    nnoremap <Space>.   :<C-u>source $VIM\_gvimrc<CR>
     " フォント設定
     set guifont=Migu_1M:h12:cSHIFTJIS
-    " バックアップファイルの作成場所
-    set backupdir=C:\vim_tmp
-    " スワップファイルの作成場所
-    set directory=C:\vim_tmp
+    " 自動改行無効
+    set formatoptions=q
+    " ウインドウの幅
+    set columns=110
+    " ウインドウの高さ
+    set lines=45
     " 自動的にファイルを読み込むパスを設定 ~/vimfiles/userautoload/*.vim
     set runtimepath+=~/vimfiles/
     runtime! userautoload/*.vim
 elseif has('mac')
     " フォント設定
-    set guifont=Ricty\ Regular:h16
+    set guifont=Ricty_for_Powerline:h16
+    set guifontwide=Ricty:h16
+    let g:Powerline_symbols = 'fancy'
+    " ウインドウの幅
+    set columns=110
+    " ウインドウの高さ
+    set lines=45
     " バックアップファイルの作成場所
     set backupdir=~/vim_tmp
     " スワップファイルの作成場所
