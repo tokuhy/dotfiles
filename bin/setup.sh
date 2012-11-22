@@ -24,6 +24,7 @@ case $1 in
         fi
     done
     if [ -f ~/dotfiles/.ssh/config ];then
+        chmod 600 ~/dotfiles/.ssh/config
         ln -fs ~/dotfiles/.ssh/config ~/.ssh/
     fi
     ;;
