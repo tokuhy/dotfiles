@@ -187,7 +187,7 @@ elseif has('mac')
     set guifontwide=Ricty:h16
     let g:Powerline_symbols = 'fancy'
     " ウインドウの幅
-    set columns=110
+    set columns=150
     " ウインドウの高さ
     set lines=45
     " バックアップファイルの作成場所
