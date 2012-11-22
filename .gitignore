@@ -1,7 +1,6 @@
 .*\~
 .DS_Store
-.vim/bundle
+/.vim/bundle/*
 
 # 以下は無視しない
-!.vim/bundle/neobundle.vim
-
+!/.vim/bundle/neobundle.vim/*
