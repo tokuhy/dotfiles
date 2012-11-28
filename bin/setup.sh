@@ -5,6 +5,7 @@
 # home directory以下に展開するdotfileを列挙
 dotfiles="
 .zshrc
+.zprofile
 .tmux.conf
 .vimrc
 .gvimrc
