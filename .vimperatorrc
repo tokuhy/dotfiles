@@ -30,6 +30,8 @@ noremap D d
 " リンクを開くときの挙動を入れ替える
 noremap f F
 noremap F f
+" 直前のタブの選択
+map <C-t> <C-^>
 " <BS>で「戻る」
 noremap <BS> H
 " <S-Left>/<S-Right>で現在のタブの位置変更
