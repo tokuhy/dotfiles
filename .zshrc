@@ -119,14 +119,15 @@ alias j="jobs -l"
 case "${OSTYPE}" in
 freebsd*|darwin*)
     alias ls="ls -G -w"
+    alias grep="grep --color=always"
     ;;
 linux*)
-    alias ls="ls --color=auto"
-    alias grep="grep --color=auto"
+    alias ls="ls --color=always"
+    alias grep="grep --color=always"
     ;;
 solaris*)
-    alias ls="/usr/gnu/bin/ls --color=auto"
-    alias grep="/usr/gnu/bin/grep --color=auto"
+    alias ls="/usr/gnu/bin/ls --color=always"
+    alias grep="/usr/gnu/bin/grep --color=always"
     ;;
 esac
 
@@ -135,10 +136,11 @@ alias lf="ls -F"
 alias ll="ls -l"
 alias du="du -h"
 alias df="df -h"
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
 alias vi="vim"
+alias less="less -R"
 # sudo のエイリアス対応
 alias sudo="sudo "
 # tmux 256色対応
