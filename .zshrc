@@ -35,17 +35,38 @@ esac
 setopt auto_cd
 # cd -[tab]でcdの履歴を参照して移動できるようにする
 setopt auto_pushd
+# ディレクトリスタックに同じディレクトリを追加しないようになる
+setopt pushd_ignore_dups
 # コマンド入力に間違いがある場合候補の提示
 setopt correct
+# コマンドライン全てのスペルチェックをする
+setopt correct_all
 # 補完候補を詰めて表示
 setopt list_packed
+# 補完候補が複数ある時に、一覧表示する
+setopt auto_list
+# auto_list の補完候補一覧で、ls -F のようにファイルの種別をマーク表示
+setopt list_types
 # パスの最後の/を自動削除しない
 setopt noautoremoveslash
 # 補完時にbeep音を出さない
 setopt nolistbeep
 # 拡張グロブ
 setopt extended_glob
-
+# 上書きリダイレクトの禁止
+setopt no_clobber
+# コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
+setopt magic_equal_subst
+# カッコの対応などを自動的に補完する
+setopt auto_param_keys
+# ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
+setopt auto_param_slash
+# {a-c} を a b c に展開する機能を使えるようにする
+setopt brace_ccl
+# 補完キー（Tab, Ctrl+I) を連打するだけで順に補完候補を自動で補完する
+setopt auto_menu
+# sudoも補完の対象
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 
 # emacsライクなキーバインド。Ctrl-AやCtrl-Eなど
 bindkey -e
@@ -64,11 +85,14 @@ bindkey "\\en" history-beginning-search-forward-end
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
-# 重複するコマンド履歴のの排除
+# 重複するコマンド履歴の排除
 setopt hist_ignore_dups
 # 履歴の共有
 setopt share_history
-
+# 余分な空白は詰める
+setopt hist_reduce_blanks
+# コマンド実行時に即座にヒストリファイルに追記
+setopt inc_append_history
 
 # 補完機能
 # 独自設定ファイルの場所
