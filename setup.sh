@@ -4,6 +4,7 @@
 
 # home directory以下に展開するdotfileを列挙
 dotfiles="
+.zshenv
 .zshrc
 .zprofile
 .tmux.conf
