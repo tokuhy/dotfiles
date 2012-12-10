@@ -1,15 +1,11 @@
 # 言語設定
 export LANG=ja_JP.UTF-8
-
 # 環境設定
 export PAGER=less
-
 # PATH(macのhomebrew用)
 export PATH=~/bin:/usr/local/bin:$PATH
-
 # editor
 export EDITOR=/usr/bin/vim
-
 # プロンプトの設定 rootのみカラー変更
 autoload colors
 colors
@@ -47,6 +43,8 @@ setopt list_packed
 setopt noautoremoveslash
 # 補完時にbeep音を出さない
 setopt nolistbeep
+# 拡張グロブ
+setopt extended_glob
 
 
 # emacsライクなキーバインド。Ctrl-AやCtrl-Eなど
@@ -78,13 +76,10 @@ fpath=(~/.zsh/functions/Completion ${fpath})
 # コマンド補完の必須設定
 autoload -Uz compinit
 compinit
-
 # 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
-
 # zsh editor
 autoload zed
-
 # コマンド履歴からの入力候補表示
 #autoload predict-on
 #predict-off
