@@ -26,6 +26,15 @@ NeoBundle 'project.tar.gz'
 NeoBundle 'sudo.vim'
 NeoBundle 'Lokaltog/vim-powerline'
 
+"" syntax
+" nginx
+NeoBundle 'nginx.vim'
+
+"""""""""
+" syntax
+"""""""""
+au BufRead,BufNewFile /etc/nginx/*,nginx.conf setf nginx
+
 filetype plugin on
 filetype indent on
 
@@ -244,3 +253,4 @@ elseif has('mac')
     " スワップファイルの作成場所
     set directory=~/vim_tmp
 endif
+
