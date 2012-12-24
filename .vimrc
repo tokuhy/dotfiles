@@ -210,6 +210,8 @@ map     <F10>       :set number!<CR>
 """""""""""""""
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
+" シェルスクリプト用のテンプレート
+autocmd BufNewFile *.sh 0r $HOME/dotfiles/.vim/templates/sh.txt
 
 " 行番号と相対行番号の切替
 if version >= 703
