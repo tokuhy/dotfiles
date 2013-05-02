@@ -213,6 +213,7 @@ map     <F10>       :set number!<CR>
 autocmd BufWritePre * if  &ft!='markdown' | :%s/\s\+$//ge
 " シェルスクリプト用のテンプレート
 autocmd BufNewFile *.sh 0r $HOME/dotfiles/.vim/templates/sh.txt
+autocmd BufNewFile *.md 0r $HOME/dotfiles/.vim/templates/markdown.txt
 
 " 行番号と相対行番号の切替
 if version >= 703
