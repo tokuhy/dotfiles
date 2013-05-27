@@ -187,6 +187,9 @@ set cmdheight=2
 " コマンドをステータス行に表示
 set showcmd
 
+" 折りたたみ
+set foldmethod=marker
+
 """""""""""""""
 " キーバインド
 """""""""""""""
