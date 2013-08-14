@@ -50,10 +50,6 @@ alias less="less -R"
 alias sudo="sudo "
 # tmux 256色対応
 alias tmux="tmux -2"
-# python
-alias p="python3"
-alias p2="python"
-alias ipy="/usr/local/share/python3/ipython3"
 
 case "${OSTYPE}" in
 darwin*)
