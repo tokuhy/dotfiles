@@ -4,6 +4,10 @@ export LANG=ja_JP.UTF-8
 export PAGER=less
 # PATH(macのhomebrew用)
 export PATH=~/bin:/usr/local/bin:$PATH
+# pyenv環境があればPATHに含める
+if [ -d $HOME/.pyenv ];then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+fi
 # editor
 export EDITOR=/usr/bin/vim
 

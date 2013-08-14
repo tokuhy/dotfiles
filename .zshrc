@@ -169,6 +169,10 @@ kterm*|xterm*)
     ;;
 esac
 
+# pyenv環境があれば実行
+if [ -d $HOME/.pyenv ];then
+    eval "$(pyenv init -)"
+fi
 
 # ユーザ独自の追加設定があれば読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
