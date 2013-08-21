@@ -5,9 +5,9 @@ set nocompatible
 filetype off
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
+    set runtimepath+=~/.vim/bundle/neobundle.vim
 
-  call neobundle#rc(expand('~/.vim/bundle/'))
+    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
 "" github
@@ -220,16 +220,16 @@ autocmd BufNewFile *.md 0r $HOME/dotfiles/.vim/templates/markdown.txt
 
 " 行番号と相対行番号の切替
 if version >= 703
-  nnoremap   <F11> :<C-u>ToggleNumber<CR>
-  command! -nargs=0 ToggleNumber call ToggleNumberOption()
+    nnoremap   <F11> :<C-u>ToggleNumber<CR>
+    command! -nargs=0 ToggleNumber call ToggleNumberOption()
 
-  function! ToggleNumberOption()
-    if &number
-      set relativenumber
-    else
-      set number
-    endif
-  endfunction
+    function! ToggleNumberOption()
+        if &number
+            set relativenumber
+        else
+            set number
+        endif
+    endfunction
 endif
 
 """""""""
