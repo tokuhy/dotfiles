@@ -20,6 +20,7 @@ NeoBundle 'Shougo/unite.vim.git'
 "NeoBundle 'Shougo/vimfiler.git'
 "NeoBundle 'Shougo/vimshell.git'
 "NeoBundle 'Shougo/vinarise.git'
+NeoBundle 'nvie/vim-flake8'
 
 "" vim-scripts
 NeoBundle 'project.tar.gz'
