@@ -13,9 +13,9 @@ endif
 "" github
 "NeoBundle 'Shougo/clang_complete.git'
 "NeoBundle 'Shougo/echodoc.git'
-"NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neobundle.vim.git'
-"NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/unite.vim.git'
 "NeoBundle 'Shougo/vim-vcs.git'
 "NeoBundle 'Shougo/vimfiler.git'
 "NeoBundle 'Shougo/vimshell.git'
@@ -23,7 +23,7 @@ NeoBundle 'Shougo/neobundle.vim.git'
 
 " python関係
 NeoBundle 'nvie/vim-flake8'
-"NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim'
 
 "" vim-scripts
 NeoBundle 'project.tar.gz'
