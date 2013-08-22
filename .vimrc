@@ -20,7 +20,10 @@ NeoBundle 'Shougo/unite.vim.git'
 "NeoBundle 'Shougo/vimfiler.git'
 "NeoBundle 'Shougo/vimshell.git'
 "NeoBundle 'Shougo/vinarise.git'
+
+" python関係
 NeoBundle 'nvie/vim-flake8'
+NeoBundle 'davidhalter/jedi-vim'
 
 "" vim-scripts
 NeoBundle 'project.tar.gz'
@@ -262,3 +265,9 @@ elseif has('mac')
     set directory=~/vim_tmp
 endif
 
+""""""""
+" local
+""""""""
+if filereadable(expand('~/.vimrc.mine'))
+    source ~/.vimrc.mine
+endif
