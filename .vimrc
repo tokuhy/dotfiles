@@ -30,6 +30,7 @@ NeoBundle 'project.tar.gz'
 NeoBundle 'sudo.vim'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Markdown'
+NeoBundle 'ShowMarks'
 
 "" syntax
 " nginx
@@ -194,6 +195,12 @@ set showcmd
 " 折りたたみ
 set foldmethod=marker
 
+""""""""""""""""
+" プラグイン設定
+""""""""""""""""
+" ShowMakrs
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 """""""""""""""
 " キーバインド
 """""""""""""""
@@ -271,3 +278,15 @@ endif
 if filereadable(expand('~/.vimrc.mine'))
     source ~/.vimrc.mine
 endif
+
+"""""""""
+" Python
+"""""""""
+"" for python_flake8.vim
+" 以下はチェックから除外
+" E203: whitespace before ':'
+" E221: multiple spaces before operator
+" E251: unexpected spaces around keyword / parameter equals
+let g:flake8_ignore="E203,E221,E251"
+" 1行あたりの文字数(default:79)
+let g:flake8_max_line_length=99
