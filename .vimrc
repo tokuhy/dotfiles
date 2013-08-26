@@ -198,7 +198,18 @@ set foldmethod=marker
 """"""""""""""""
 " プラグイン設定
 """"""""""""""""
-" ShowMakrs
+"" Project
+" ファイルが選択されたらウインドウを閉じる
+"let g:proj_flags = "imstc"
+" プロジェクトのトグル開閉
+nmap <silent> <Leader>p <Plug>ToggleProject
+" デフォルトのプロジェクトを開く
+nmap <silent> <Leader>P :Project<CR>
+" folding の自動展開
+autocmd BufAdd .vimprojects silent! %foldopen!
+
+"" ShowMakrs
+" 表示対象のマークを限定
 let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 """""""""""""""
