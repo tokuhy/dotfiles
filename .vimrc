@@ -30,7 +30,6 @@ NeoBundle 'project.tar.gz'
 NeoBundle 'sudo.vim'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Markdown'
-NeoBundle 'ShowMarks'
 
 "" syntax
 " nginx
