@@ -156,8 +156,12 @@ set ic
 set smartcase
 " 半角と全角の対応
 set ambiwidth=double
-" Tabキーの幅
+" Tabキーを表示するスペース数
 set tabstop=4
+" Tabキーで入力したときのスペース数
+set softtabstop=4
+" vimが挿入するインデント幅
+set shiftwidth=4
 " Tabキー入力を半角スペースで展開する
 set expandtab
 " 対応するカッコの強調表示無効
