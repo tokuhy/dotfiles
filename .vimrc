@@ -35,6 +35,10 @@ NeoBundle 'Markdown'
 " nginx
 NeoBundle 'nginx.vim'
 
+"" 組み込みプラグイン
+" % 機能の拡張(タグのマッチング)
+runtime macros/matchit.vim
+
 """""""""
 " syntax
 """""""""
