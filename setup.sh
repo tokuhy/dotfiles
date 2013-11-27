@@ -12,6 +12,7 @@ dotfiles="
 .gvimrc
 .screenrc
 .gitconfig
+.gitattributes
 .vim
 bin
 "
