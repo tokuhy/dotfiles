@@ -1,8 +1,10 @@
 [user]
-    name = Fumiaki Tokuyama
-    email = tokuhy@gmail.com
+	name = UNDEFINED
+	email = UNDEFINED
 [core]
     quotepath = false
     attributesfile = ~/.gitattributes
 [color]
     ui = auto
+[init]
+	templatedir = ~/.git_template
