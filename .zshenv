@@ -8,6 +8,10 @@ export PATH=~/bin:/usr/local/bin:$PATH
 if [ -d $HOME/.pyenv ];then
     export PATH="$HOME/.pyenv/bin:$PATH"
 fi
+# rbenv環境があればPATHに含める
+if [ -d $HOME/.rbenv ];then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+fi
 # editor
 export EDITOR=/usr/bin/vim
 
