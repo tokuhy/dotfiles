@@ -311,3 +311,8 @@ endif
 let g:flake8_ignore="E203,E221,E251"
 " 1行あたりの文字数(default:79)
 let g:flake8_max_line_length=99
+
+""""""""
+" Ruby
+""""""""
+au BufNewFile,BufRead *.rb  setlocal tabstop=2 shiftwidth=2
