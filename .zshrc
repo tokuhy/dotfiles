@@ -174,9 +174,7 @@ if [ -d $HOME/.pyenv ];then
     eval "$(pyenv init -)"
 fi
 # rbenv環境があれば実行
-if [ -d $HOME/.rbenv ];then
-    eval "$(rbenv init -)"
-fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # ユーザ独自の追加設定があれば読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
