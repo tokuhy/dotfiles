@@ -15,9 +15,10 @@ set visualbell
 set ignorecase
 " ヒント文字をアルファベットに変更(1文字目は無視されて2週目に出てくる)
 set hintchars=cfjklasdhguionmerw
+" ヒント文字のサイズとカラー
+hi Hint font-family: monospace; font-size: 17px; text-transform: uppercase; color: white; background-color: red; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px;
 " コマンドラインモードではIMEをoff
 style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " キーマップ設定
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
