@@ -75,6 +75,8 @@ bindkey "^n" history-beginning-search-forward-end
 bindkey "\\ep" history-beginning-search-backward-end
 bindkey "\\en" history-beginning-search-forward-end
 
+# Ctrl-W で削除を / を単語区切りに加える
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # コマンド履歴設定(10万件)
 HISTFILE=~/.zsh_history
@@ -103,6 +105,8 @@ autoload zed
 #autoload predict-on
 #predict-off
 
+# 常に最後の行のみ右プロンプト表示
+setopt transient_rprompt
 
 # ターミナル設定
 case "${TERM}" in
