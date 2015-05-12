@@ -14,6 +14,7 @@ dotfiles="
 .gitconfig
 .gitattributes
 .vim
+.gemrc
 bin
 "
 
