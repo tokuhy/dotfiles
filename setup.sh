@@ -27,17 +27,12 @@ case $1 in
             ln -fs ~/dotfiles/$f ~/
         fi
     done
-    if [ -f ~/dotfiles/.ssh/config ];then
-        chmod 600 ~/dotfiles/.ssh/config
-        ln -fs ~/dotfiles/.ssh/config ~/.ssh/
-    fi
     ;;
 "uninstall")
     # 削除
     for f in $dotfiles;do
         rm -f ~/$f
     done
-    rm -f ~/.ssh/config
     ;;
 *)
     echo "option is [install/uninstall]"
