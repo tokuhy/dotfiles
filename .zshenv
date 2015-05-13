@@ -4,18 +4,23 @@ export LANG=ja_JP.UTF-8
 export PAGER=less
 # PATH(macのhomebrew用)
 export PATH=~/bin:/usr/local/bin:$PATH
-# pyenv環境があればPATHに含める
+
+# pyenv環境があれば実行
 if [ -d $HOME/.pyenv ];then
+    eval "$(pyenv init -)"
     export PATH="$HOME/.pyenv/bin:$PATH"
 fi
-# rbenv環境があればPATHに含める
+# rbenv環境があれば実行
 if [ -d $HOME/.rbenv ];then
+    eval "$(rbenv init -)";
     export PATH="$HOME/.rbenv/bin:$PATH"
 fi
+
 # editor
 export EDITOR=/usr/bin/vim
 
 # 重複したPATHを除外する
+# PATH 設定の前に持ってくるとうまく動かないのでここに
 typeset -U path cdpath fpath manpath
 
 ## alias設定

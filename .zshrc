@@ -163,7 +163,6 @@ jfbterm-color)
     ;;
 esac
 
-
 # ターミナルのタイトル表示
 case "${TERM}" in
 kterm*|xterm*)
@@ -172,13 +171,6 @@ kterm*|xterm*)
     }
     ;;
 esac
-
-# pyenv環境があれば実行
-if [ -d $HOME/.pyenv ];then
-    eval "$(pyenv init -)"
-fi
-# rbenv環境があれば実行
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # ユーザ独自の追加設定があれば読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
