@@ -9,34 +9,35 @@ if has('vim_starting')
 
     call neobundle#begin(expand('~/.vim/bundle/'))
     NeoBundleFetch 'Shougo/neobundle.vim'
+
+    "" github
+    "NeoBundle 'Shougo/clang_complete.git'
+    "NeoBundle 'Shougo/echodoc.git'
+    NeoBundle 'Shougo/neocomplcache.git'
+    NeoBundle 'Shougo/neobundle.vim.git'
+    NeoBundle 'Shougo/unite.vim.git'
+    "NeoBundle 'Shougo/vim-vcs.git'
+    "NeoBundle 'Shougo/vimfiler.git'
+    "NeoBundle 'Shougo/vimshell.git'
+    "NeoBundle 'Shougo/vinarise.git'
+    NeoBundle 'tpope/vim-surround'
+
+    " python関係
+    NeoBundle 'nvie/vim-flake8'
+    NeoBundle 'davidhalter/jedi-vim'
+
+    "" vim-scripts
+    NeoBundle 'project.tar.gz'
+    NeoBundle 'sudo.vim'
+    NeoBundle 'Lokaltog/vim-powerline'
+    NeoBundle 'Markdown'
+
+    "" syntax
+    " nginx
+    NeoBundle 'nginx.vim'
+
     call neobundle#end()
 endif
-
-"" github
-"NeoBundle 'Shougo/clang_complete.git'
-"NeoBundle 'Shougo/echodoc.git'
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/neobundle.vim.git'
-NeoBundle 'Shougo/unite.vim.git'
-"NeoBundle 'Shougo/vim-vcs.git'
-"NeoBundle 'Shougo/vimfiler.git'
-"NeoBundle 'Shougo/vimshell.git'
-"NeoBundle 'Shougo/vinarise.git'
-NeoBundle 'tpope/vim-surround'
-
-" python関係
-NeoBundle 'nvie/vim-flake8'
-NeoBundle 'davidhalter/jedi-vim'
-
-"" vim-scripts
-NeoBundle 'project.tar.gz'
-NeoBundle 'sudo.vim'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'Markdown'
-
-"" syntax
-" nginx
-NeoBundle 'nginx.vim'
 
 "" 組み込みプラグイン
 " % 機能の拡張(タグのマッチング)
