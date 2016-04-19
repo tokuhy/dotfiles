@@ -55,6 +55,9 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias vi="vim"
 alias less="less -R"
+alias g="git "
+alias be="bundle exec"
+
 # sudo のエイリアス対応
 alias sudo="sudo "
 # tmux 256色対応

@@ -15,3 +15,10 @@
 [mergetool "sourcetree"]
     cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
+[alias]
+    st = status -sb
+    df = diff
+    co = checkout
+    b = branch
+    pl = pull
+    ps = push
