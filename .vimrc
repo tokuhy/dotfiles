@@ -21,6 +21,7 @@ if has('vim_starting')
     "NeoBundle 'Shougo/vimshell.git'
     "NeoBundle 'Shougo/vinarise.git'
     NeoBundle 'tpope/vim-surround'
+    NeoBundle 'h1mesuke/vim-alignta'
 
     " python関係
     NeoBundle 'nvie/vim-flake8'
