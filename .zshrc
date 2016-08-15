@@ -174,3 +174,6 @@ esac
 
 # ユーザ独自の追加設定があれば読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
+
+# added by travis gem
+[ -f /Users/tokuhy/.travis/travis.sh ] && source /Users/tokuhy/.travis/travis.sh
