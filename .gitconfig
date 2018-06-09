@@ -1,6 +1,6 @@
 [user]
-    name = UNDEFINED
-    email = UNDEFINED
+    name = tokuhy
+    email = tokuhy@gmail.com
 [core]
     quotepath = false
     attributesfile = ~/.gitattributes
@@ -22,3 +22,9 @@
     b = branch
     pl = pull
     ps = push
+[commit]
+    template = /Users/tokuhy/.stCommitMsg
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
