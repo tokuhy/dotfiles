@@ -1,10 +1,10 @@
 [user]
-    name = tokuhy
-    email = tokuhy@gmail.com
+    name = NAME
+    email = EMAIL
 [core]
     quotepath = false
     attributesfile = ~/.gitattributes
-    excludesfile = /Users/tokuhy/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [color]
     ui = auto
 [init]
@@ -23,7 +23,7 @@
     pl = pull
     ps = push
 [commit]
-    template = /Users/tokuhy/.stCommitMsg
+    template = ~/.stCommitMsg
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
