@@ -3,8 +3,8 @@
 $ cd ~
 $ git clone https://github.com/tokuhy/dotfiles.git
 $ cd dotfiles
-$ ./setup install
-$ git submodule ini
+$ ./setup.sh install
+$ git submodule init
 $ git submodule update
 ```
 
