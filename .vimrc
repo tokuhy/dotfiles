@@ -293,6 +293,8 @@ elseif has('mac')
     set backupdir=~/vim_tmp
     " スワップファイルの作成場所
     set directory=~/vim_tmp
+    " undo ファイル作成場所
+    set undodir=~/vim_tmp
 endif
 
 """"""""
