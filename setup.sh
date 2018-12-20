@@ -13,6 +13,8 @@ dotfiles="
 .screenrc
 .gitconfig
 .gitattributes
+.gitignore
+.gitmodule
 .vim
 .gemrc
 bin
