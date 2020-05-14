@@ -31,7 +31,7 @@ alias where="command -v"
 alias j="jobs -l"
 # OSの違いによる設定
 case "${OSTYPE}" in
-freebsd*|darwin*)
+darwin*)
     alias ls="ls -G -w"
     alias grep="grep --color=always"
     ;;
@@ -72,25 +72,6 @@ darwin*)
     alias tm="tmuxx"
     alias tma="tmux attach"
     alias tml="tmux list-window"
-    ;;
-freebsd*)
-    case ${UID} in
-    0)
-        updateports()
-        {
-            if [ -f /usr/ports/.portsnap.INDEX ]
-            then
-                portsnap fetch update
-            else
-                portsnap fetch extract update
-            fi
-            (cd /usr/ports/; make index)
-
-            portversion -v -l \<
-        }
-        alias appsupgrade='pkgdb -F && BATCH=YES NO_CHECKSUM=YES portupgrade -a'
-        ;;
-    esac
     ;;
 esac
 
