@@ -22,8 +22,6 @@
     b = branch
     pl = pull
     ps = push
-[commit]
-    template = ~/.stCommitMsg
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
