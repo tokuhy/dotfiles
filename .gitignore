@@ -2,6 +2,8 @@
 .DS_Store
 /.vim/bundle/*
 /.vim/.netrwhist
+.idea/
+.python-version
 
 # 以下は無視しない
 !/.vim/bundle/neobundle.vim/*
