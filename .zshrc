@@ -88,7 +88,6 @@ case "${OSTYPE}" in
 darwin*)
     alias updateports="sudo port selfupdate; sudo port outdated"
     alias portupgrade="sudo port upgrade installed"
-    alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
     alias tm="tmuxx"
     alias tma="tmux attach"
     alias tml="tmux list-window"
