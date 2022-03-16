@@ -7,8 +7,6 @@ export PAGER=less
 if type brew &>/dev/null;then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-  autoload -Uz compinit
-  compinit
   # PATH(macのhomebrew用)
   export PATH=$(brew --prefix)/bin:$PATH
 fi
