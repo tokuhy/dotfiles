@@ -2,8 +2,28 @@
 export LANG=ja_JP.UTF-8
 # 環境設定
 export PAGER=less
-# PATH(macのhomebrew用)
-export PATH=~/bin:/usr/local/bin:$PATH
+
+# homeberwでzsh-completionsがある場合の設定
+if type brew &>/dev/null;then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+  # PATH(macのhomebrew用)
+  export PATH=$(brew --prefix)/bin:$PATH
+fi
+
+#path=xxxx(N-/)
+#  (N-/): 存在しないディレクトリは登録しない
+#  パス(...): ...という条件にマッチするパスのみ残す
+#     N: NULL_GLOBオプションを設定。
+#        globがマッチしなかったり存在しないパスを無視する
+#     -: シンボリックリンク先のパスを評価
+#     /: ディレクトリのみ残す
+#     .: 通常のファイルのみ残す
+
+# ホームディレクトリ配下にbinがあるときだけ追加
+path=(~/bin(N-/) $PATH)
 
 # pyenv環境があれば実行
 if [ -d $HOME/.pyenv ];then
@@ -16,12 +36,12 @@ if [ -d $HOME/.rbenv ];then
     eval "$(rbenv init -)";
 fi
 
-# editor
-export EDITOR=/usr/bin/vim
-
 # 重複したPATHを除外する
 # PATH 設定の前に持ってくるとうまく動かないのでここに
 typeset -U path cdpath fpath manpath
+
+# editor
+export EDITOR=/usr/bin/vim
 
 ## alias設定
 # 補完前にaliasを展開する
