@@ -34,6 +34,12 @@ if [ -d $HOME/.rbenv ];then
     eval "$(rbenv init -)";
 fi
 
+# claude環境があれば
+if [ -d $HOME/.local/bin ];then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+
 # 重複したPATHを除外する
 # PATH 設定の前に持ってくるとうまく動かないのでここに
 typeset -U path cdpath fpath manpath
@@ -269,3 +275,9 @@ esac
 # ユーザ独自の追加設定があれば読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/fumiaki.tokuyama/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fumiaki.tokuyama/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/fumiaki.tokuyama/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fumiaki.tokuyama/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
