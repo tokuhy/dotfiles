@@ -57,15 +57,15 @@ alias j="jobs -l"
 case "${OSTYPE}" in
 darwin*)
     alias ls="ls -G -w"
-    alias grep="grep --color=always"
+    alias grep="grep --color=auto"
     ;;
 linux*)
     alias ls="ls --color=always"
-    alias grep="grep --color=always"
+    alias grep="grep --color=auto"
     ;;
 solaris*)
     alias ls="/usr/gnu/bin/ls --color=always"
-    alias grep="/usr/gnu/bin/grep --color=always"
+    alias grep="/usr/gnu/bin/grep --color=auto"
     ;;
 esac
 
@@ -274,10 +274,3 @@ esac
 
 # ユーザ独自の追加設定があれば読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/fumiaki.tokuyama/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fumiaki.tokuyama/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/fumiaki.tokuyama/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fumiaki.tokuyama/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
