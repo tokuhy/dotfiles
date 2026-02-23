@@ -1,10 +1,10 @@
 [user]
-    name = NAME
-    email = EMAIL
+    name = Fumiaki Tokuyama
+    email = tokuhy@gmail.com
 [core]
     quotepath = false
     attributesfile = ~/.gitattributes
-    excludesfile = ~/.gitignore_global
+    excludesfile = /Users/fumiaki.tokuyama/.gitignore_global
 [color]
     ui = auto
 [init]
@@ -26,3 +26,11 @@
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
     required = true
+[pull]
+    rebase = true
+[push]
+    default = current
+[diff]
+    algorithm = histogram
+[merge]
+    conflictstyle = diff3
