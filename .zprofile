@@ -1,7 +1,7 @@
 # brewでインストールしたkeychainの設定
 case "${OSTYPE}" in
     darwin*)
-    keychain ~/.ssh/tokuhy ~/.ssh/tokuhy-nopass
+    keychain -q ~/.ssh/tokuhy ~/.ssh/tokuhy-nopass ~/.ssh/tokuyama.key
     [ -z "$HOSTNAME" ] && HOSTNAME=`uname -n`
     [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
             . $HOME/.keychain/$HOSTNAME-sh
