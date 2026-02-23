@@ -104,7 +104,7 @@ if has('autocmd')
        endif
     endfunction
     autocmd BufReadPost * call AU_ReCheck_FENC()
-endi
+endif
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
 " □とか○の文字があってもカーソル位置がずれないようにする
@@ -141,16 +141,12 @@ set wrap
 "  eol - 行頭で[Backspace]を使用した場合上の行と連結
 "  indent - オートインデントモードでインデントを削除できるように設定
 set backspace=indent,eol,start
-" Vi互換をオフ
-set nocompatible
 " 新しい行のインデントを現在行と同じにする
 set autoindent
 " 新しい行を作ったときに高度な自動インデントを行う
 set smartindent
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
-" シフト移動幅
-set shiftwidth=4
 " 変更中のファイルでも、保存しないで他のファイルを表示
 set hidden
 " 検索結果ハイライト
@@ -163,8 +159,6 @@ set incsearch
 set ic
 " ↑但し検索文字列に大文字が入っている場合は区別する
 set smartcase
-" 半角と全角の対応
-set ambiwidth=double
 " Tabキーを表示するスペース数
 set tabstop=4
 " Tabキーで入力したときのスペース数
@@ -179,17 +173,13 @@ let loaded_matchparen = 1
 set formatoptions+=m
 " マウスを有効化
 set mouse=a
-set ttymouse=xterm2
+set ttymouse=sgr
 " コマンド補完を強化 リスト表示，最長マッチ
 set wildmenu wildmode=list:full
-" 改行コードの自動認識
-set fileformats=unix,dos,mac
 " 常にタブ表示
 set showtabline=2
 " タイトルを表示
 set title
-" 開始時デフォルトはpaste mode
-set paste
 " pasteモードの切り替え
 set pastetoggle=<F12>
 
@@ -289,7 +279,8 @@ elseif has('mac')
     set guifont=Ricty_for_Powerline:h16
     set guifontwide=Ricty:h16
     let g:Powerline_symbols = 'fancy'
-    " バックアップファイルの作成場所
+    " バックアップ/スワップ/undoファイルの作成場所
+    silent !mkdir -p ~/vim_tmp
     set backupdir=~/vim_tmp
     " スワップファイルの作成場所
     set directory=~/vim_tmp
