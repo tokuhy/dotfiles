@@ -4,6 +4,7 @@
 /.vim/.netrwhist
 .idea/
 .python-version
+CLAUDE.md
 
 # 以下は無視しない
 !/.vim/bundle/neobundle.vim/*
