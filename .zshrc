@@ -3,12 +3,17 @@ export LANG=ja_JP.UTF-8
 # 環境設定
 export PAGER=less
 
-# homeberwでzsh-completionsがある場合の設定
-if type brew &>/dev/null;then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+# Homebrew: PATH/MANPATH等を設定
+# brewのフルパスで呼ぶのでPATHが未通でも動く（type brewのチェックより確実）
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"   # Apple Silicon
+elif [ -x /usr/local/bin/brew ]; then
+  eval "$(/usr/local/bin/brew shellenv)"      # Intel
+fi
 
-  # PATH(macのhomebrew用)
-  export PATH=$(brew --prefix)/bin:$PATH
+# zsh-completions（brewが使えるとき）
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh-completions:${FPATH}"
 fi
 
 #path=xxxx(N-/)
