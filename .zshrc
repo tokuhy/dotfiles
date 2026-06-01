@@ -44,6 +44,13 @@ if [ -d $HOME/.local/bin ];then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
+# nvm環境があれば実行
+if [ -d $HOME/.nvm ];then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+fi
+
 
 # 重複したPATHを除外する
 # PATH 設定の前に持ってくるとうまく動かないのでここに
