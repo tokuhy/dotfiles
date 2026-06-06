@@ -1,20 +1,9 @@
-[user]
-    name = Fumiaki Tokuyama
-    email = tokuhy@gmail.com
 [core]
     quotepath = false
     attributesfile = ~/.gitattributes
-    excludesfile = /Users/fumiaki.tokuyama/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [color]
     ui = auto
-[init]
-    templatedir = ~/.git_template
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
-[mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
 [alias]
     st = status -sb
     df = diff
@@ -22,21 +11,23 @@
     b = branch
     pl = pull
     ps = push
-[filter "lfs"]
-    clean = git-lfs clean %f
-    smudge = git-lfs smudge %f
-    required = true
 [pull]
     rebase = true
 [push]
     default = current
+[fetch]
+    prune = true
 [diff]
     algorithm = histogram
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
+[init]
+    defaultBranch = main
 [credential "https://github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[include]
+    path = ~/.gitconfig.local
