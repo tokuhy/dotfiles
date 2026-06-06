@@ -50,11 +50,22 @@ git-lfs を使うリポジトリがある場合のみ、各自で有効化する
 $ git lfs install
 ```
 
+SSH 鍵の読み込み（keychain）などマシン固有の設定は `~/.zshrc.mine`（管理対象外）に置く。
+`.zshrc` が末尾で読み込む。例:
+
+```sh
+# ~/.zshrc.mine
+if type keychain &>/dev/null; then
+    keychain -q ~/.ssh/id_ed25519        # 自分の鍵名に合わせる
+    [ -f ~/.keychain/$(uname -n)-sh ] && . ~/.keychain/$(uname -n)-sh
+fi
+```
+
 ## 管理対象ファイル
 
 | パス | 内容 |
 |------|------|
-| `.zshenv` / `.zshrc` / `.zprofile` | zsh 設定。`.zshrc` は PATH・エイリアス・補完・プロンプト・履歴・キーバインド。`EDITOR=nvim`、`vim`/`vi` は `nvim` の alias |
+| `.zshrc` | zsh 設定。PATH・エイリアス・補完・プロンプト・履歴・キーバインド。`EDITOR=nvim`、`vim`/`vi` は `nvim` の alias |
 | `.tmux.conf` | tmux 設定。プレフィックス `Ctrl+t`、ペイン分割 `prefix+h`（水平）/`prefix+v`（垂直）。コピー/ペーストは `pbcopy`/`pbpaste` 連携 |
 | `.config/nvim/init.lua` | neovim 設定（デフォルトエディタ）。プラグインなしの素設定（文字コード・インデント・キーマップ・ステータスライン・全角スペース可視化） |
 | `.config/nvim/colors/desert256.vim` | 同梱の配色（`colorscheme desert256`） |
