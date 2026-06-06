@@ -90,7 +90,6 @@ alias vim="$EDITOR"
 alias less="less -R"
 alias g="git "
 alias be="bundle exec"
-alias bes="bundle exec spring"
 
 # sudo のエイリアス対応
 alias sudo="sudo "
