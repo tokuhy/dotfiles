@@ -1,0 +1,14 @@
+# 各自の個人設定テンプレート。
+#   cp ~/dotfiles/.gitconfig.local.example ~/.gitconfig.local
+# としてコピーし、name / email を自分のものに編集する。
+# このファイルは共有 .gitconfig の末尾から include され、後勝ちで上書きできる。
+# (~/.gitconfig.local が無くても git はエラーにしない)
+
+[user]
+    name = Your Name
+    email = you@example.com
+
+# 個人で使うツール等があればここに追記する（任意）
+# 例:
+# [difftool "vscode"]
+#     cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
