@@ -95,8 +95,6 @@ alias tmux="tmux -2"
 
 case "${OSTYPE}" in
 darwin*)
-    alias updateports="sudo port selfupdate; sudo port outdated"
-    alias portupgrade="sudo port upgrade installed"
     alias tm="tmuxx"
     alias tma="tmux attach"
     alias tml="tmux list-window"
@@ -142,8 +140,6 @@ setopt auto_cd
 setopt auto_pushd
 # ディレクトリスタックに同じディレクトリを追加しないようになる
 setopt pushd_ignore_dups
-# コマンド入力に間違いがある場合候補の提示
-setopt correct
 # コマンド名のスペルミスを訂正する
 setopt correct
 # 補完候補を詰めて表示
