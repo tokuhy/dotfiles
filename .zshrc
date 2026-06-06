@@ -214,9 +214,6 @@ fi
 zstyle ':completion:*:default' menu select=1
 # zsh editor
 autoload zed
-# コマンド履歴からの入力候補表示
-#autoload predict-on
-#predict-off
 
 # 常に最後の行のみ右プロンプト表示
 setopt transient_rprompt
