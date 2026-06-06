@@ -55,8 +55,12 @@ fi
 # PATH 設定の前に持ってくるとうまく動かないのでここに
 typeset -U path cdpath fpath manpath
 
-# editor
-export EDITOR=nvim
+# editor: neovim があれば優先、無ければ vim にフォールバック
+if type nvim &>/dev/null; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
 
 ## alias設定
 # 補完前にaliasを展開する
@@ -81,8 +85,9 @@ alias lf="ls -F"
 alias ll="ls -l"
 alias du="du -h"
 alias df="df -h"
-alias vi="nvim"
-alias vim="nvim"
+# vi/vim は解決済みの $EDITOR（nvim か vim）を指す
+alias vi="$EDITOR"
+alias vim="$EDITOR"
 alias less="less -R"
 alias g="git "
 alias be="bundle exec"
