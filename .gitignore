@@ -1,2 +1,6 @@
 .DS_Store
 *~
+
+# Claude Code のローカル作業ファイル（共有設定 settings.json / commands / agents は追跡する）
+.claude/settings.local.json
+.claude/worktrees/
