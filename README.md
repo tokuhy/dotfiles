@@ -35,6 +35,9 @@ $ ./setup.sh install
 
 ## 各自の初期設定
 
+> 以下のコマンド例はリポジトリを `~/dotfiles` に clone した前提。別の場所に置いた場合は
+> `~/dotfiles/` を実際のパスに読み替える（`setup.sh` 自体は置き場所を自動解決するので動作には影響しない）。
+
 git の identity（name / email）は共有しないので、各自 `~/.gitconfig.local` に設定する
 （共有 `.gitconfig` 末尾から include。後勝ちで上書き可能）。
 
