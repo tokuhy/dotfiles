@@ -1,8 +1,8 @@
 #!/bin/sh
 
-OStype=`uname`
+# tmux ステータスバー用にロードアベレージ（1/5/15分）を出力する
 
-case $OStype in
-    "Linux"|"CYGWIN_NT-6.1-WOW64")    cat /proc/loadavg | awk '{print $1, $2, $3}' ;;
-    "Darwin")   top -l 1 | head -3 | tail -1 | sed -e 's/,//g' | awk '{print $3, $4, $5}' ;;
+case "$(uname)" in
+    Linux)  awk '{print $1, $2, $3}' /proc/loadavg ;;
+    Darwin) sysctl -n vm.loadavg | awk '{print $2, $3, $4}' ;;
 esac
