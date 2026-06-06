@@ -17,10 +17,12 @@ macOS（Apple Silicon / zsh）向けの個人用 dotfiles。設定ファイル�
 
 ```sh
 $ cd ~
-$ git clone https://github.com/tokuhy/dotfiles.git
+$ git clone https://github.com/<your-org>/dotfiles.git
 $ cd dotfiles
 $ ./setup.sh install
 ```
+
+> fork して使う場合は `<your-org>` を自分たちの fork 先リポジトリに置き換える。
 
 `setup.sh install` は管理対象（下記）を `~/` 配下にシンボリックリンクする。各操作は
 `link` / `ok`（リンク済み）/ `backup` / `skip` と末尾サマリで表示される。既存の実体ファイルが
