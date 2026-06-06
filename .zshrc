@@ -74,10 +74,6 @@ linux*)
     alias ls="ls --color=always"
     alias grep="grep --color=auto"
     ;;
-solaris*)
-    alias ls="/usr/gnu/bin/ls --color=always"
-    alias grep="/usr/gnu/bin/grep --color=auto"
-    ;;
 esac
 
 alias la="ls -al"
