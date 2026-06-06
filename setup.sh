@@ -13,15 +13,12 @@ dotfiles="
 .zshrc
 .zprofile
 .tmux.conf
-.vimrc
-.gvimrc
 .screenrc
 .gitconfig
 .gitattributes
 .gitignore
-.gitmodules
-.vim
 .gemrc
+.config/nvim
 bin
 "
 
@@ -36,8 +33,10 @@ case ${1:-} in
                 echo "backup: ~/$f -> ~/$f.bak"
                 mv ~/"$f" ~/"$f.bak"
             fi
+            # ネストした宛先（例: .config/nvim）のために親ディレクトリを用意する
+            mkdir -p "$(dirname ~/"$f")"
             # -n: 既存のシンボリックリンク先ディレクトリを辿らず置き換える
-            ln -fns "$DOTFILES_DIR/$f" ~/
+            ln -fns "$DOTFILES_DIR/$f" ~/"$f"
         fi
     done
     ;;
