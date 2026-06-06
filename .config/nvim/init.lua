@@ -47,7 +47,6 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 -----------------------------------------------------------
 opt.backspace = { "indent", "eol", "start" }
 opt.autoindent = true
-opt.smartindent = true
 opt.whichwrap = "b,s,h,l,<,>,[,]"
 opt.hidden = true
 opt.hlsearch = true
