@@ -59,6 +59,10 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
 
 - **個人/マシン固有設定の分離**: 共有ファイルに個人データを書かない。zsh は `~/.zshrc.mine`、
   git identity は `~/.gitconfig.local`（会社用は `~/workspaces/` 配下＋`~/.gitconfig.work`）に置く。
+- **グローバル gitignore は最小限**: `~/.gitignore_global`（`core.excludesfile`）には OS・エディタの
+  一時/スワップファイル（`.DS_Store`、`*~`、`*.swp` 等）だけを置く。IDE 設定（`.vscode/`・`.idea/`）や
+  言語バージョン固定（`.python-version`）は共有/コミットしたいかがプロジェクトで分かれるため、
+  グローバルでは無視せず各プロジェクトの `.gitignore` で扱う。
 - **macOS（Apple Silicon）前提**: Homebrew は `/opt/homebrew/bin/brew shellenv` で初期化。
 - **ロケール（`LANG`）は soft default**: `export LANG="${LANG:-ja_JP.UTF-8}"` とし、環境が設定済みなら
   尊重し未設定時のみ日本語にフォールバック（将来の非日本語ユーザー展開を見越す）。`LC_ALL` は固定しない
