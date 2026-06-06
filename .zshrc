@@ -195,12 +195,10 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 # 重複するコマンド履歴の排除
 setopt hist_ignore_dups
-# 履歴の共有
+# 履歴の共有（即時追記＋他シェルからの取り込みを含むため inc_append_history は不要）
 setopt share_history
 # 余分な空白は詰める
 setopt hist_reduce_blanks
-# コマンド実行時に即座にヒストリファイルに追記
-setopt inc_append_history
 
 # 補完機能
 # コマンド補完の必須設定（1日1回だけ ~/.zcompdump を再生成し、以降は高速スキップ）
