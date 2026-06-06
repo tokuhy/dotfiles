@@ -85,9 +85,6 @@ alias lf="ls -F"
 alias ll="ls -l"
 alias du="du -h"
 alias df="df -h"
-alias rm="rm -i"
-alias cp="cp -i"
-alias mv="mv -i"
 alias vi="nvim"
 alias vim="nvim"
 alias less="less -R"
@@ -109,6 +106,14 @@ darwin*)
     alias tml="tmux list-window"
     ;;
 esac
+
+# 上書き/削除の確認系（確認プロンプト）。手動実行では安全網として効かせ、
+# Claude Code 実行時（CLAUDECODE=1）は無効化し自動処理が止まらないようにする
+if [[ -z "$CLAUDECODE" ]]; then
+    alias rm="rm -i"
+    alias cp="cp -i"
+    alias mv="mv -i"
+fi
 
 # プロンプトの設定 rootのみカラー変更
 autoload colors
