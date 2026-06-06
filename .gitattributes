@@ -1,1 +1,6 @@
+# 改行コードを正規化（リポジトリ内は LF、チェックアウト時は環境に合わせる）
+* text=auto
+# シェルスクリプトは常に LF
+*.sh text eol=lf
+# Python の diff を関数単位で見やすく
 *.py diff=python
