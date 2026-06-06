@@ -9,9 +9,7 @@ DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # home directory以下に展開するdotfileを列挙
 dotfiles="
-.zshenv
 .zshrc
-.zprofile
 .tmux.conf
 .gitconfig
 .gitattributes
