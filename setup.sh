@@ -25,6 +25,7 @@ case ${1:-} in
 "install")
     echo "==> install dotfiles (source: $DOTFILES_DIR)"
     linked=0
+    already=0
     backed_up=0
     skipped=0
     # 展開
@@ -32,6 +33,12 @@ case ${1:-} in
         if [ ! -e "$DOTFILES_DIR/$f" ]; then
             echo "skip : $f (source not found)"
             skipped=$((skipped + 1))
+            continue
+        fi
+        # 既に正しい先を指すシンボリックリンクがあれば張り直さない
+        if [ -L ~/"$f" ] && [ "$(readlink ~/"$f")" = "$DOTFILES_DIR/$f" ]; then
+            echo "ok   : ~/$f (already linked)"
+            already=$((already + 1))
             continue
         fi
         # 既存の実体ファイル/ディレクトリ（シンボリックリンクを除く）はバックアップする
@@ -47,7 +54,7 @@ case ${1:-} in
         echo "link : ~/$f -> $DOTFILES_DIR/$f"
         linked=$((linked + 1))
     done
-    echo "done: ${linked} linked, ${backed_up} backed up, ${skipped} skipped"
+    echo "done: ${linked} linked, ${already} already, ${backed_up} backed up, ${skipped} skipped"
     ;;
 "uninstall")
     echo "==> uninstall dotfiles (remove symlinks created by this repo)"
