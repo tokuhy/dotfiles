@@ -23,12 +23,9 @@
     conflictstyle = zdiff3
 [init]
     defaultBranch = main
-[credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+# credential helper（gh 連携）はここに書かない。
+# `gh auth login` が各自の ~/.gitconfig に machine 固有の絶対パスで書き込むため、
+# 共有（追跡対象）ファイルに置くとマシン差分が混入する。各自 `gh auth login` で設定する。
 [include]
     path = ~/.gitconfig.local
 [includeIf "gitdir:~/workspaces/"]

@@ -9,7 +9,8 @@ macOS（Apple Silicon / zsh）向けの個人用 dotfiles。設定ファイル�
 - macOS（Apple Silicon 前提）
 - zsh
 - [Homebrew](https://brew.sh/)
-- 推奨ツール: `nvim`（neovim / デフォルトエディタ。未導入なら `vim` にフォールバック）, `tmux`
+- 推奨ツール: `nvim`（neovim / デフォルトエディタ。未導入なら `vim` にフォールバック）, `tmux`,
+  `gh`（GitHub CLI / GitHub への HTTPS 認証に使用）
 - 任意: `git-lfs`（LFS を使うリポジトリがある場合のみ）
 
 ## インストール
@@ -24,6 +25,11 @@ $ ./setup.sh install
 `setup.sh install` は管理対象（下記）を `~/` 配下にシンボリックリンクする。各操作は
 `link` / `ok`（リンク済み）/ `backup` / `skip` と末尾サマリで表示される。既存の実体ファイルが
 あった場合は `~/<name>.bak` に退避してからリンクする。
+
+ただし `.gitconfig` だけは symlink せず、各自の実体 `~/.gitconfig` に `[include]` 行を
+書き込む方式で扱う（無ければ作成、既存なら追記、旧来の symlink からは自動移行）。これにより
+`gh auth login` 等の `git config --global` の書き込みが各自ファイルに入り、共有（追跡対象）の
+`.gitconfig` を汚さない。
 
 ## 各自の初期設定
 
@@ -42,6 +48,13 @@ identity でコミットされる（`~/workspaces/` 外は個人 identity）。�
 ```sh
 $ cp ~/dotfiles/.gitconfig.work.example ~/.gitconfig.work
 $ vi ~/.gitconfig.work   # 会社の name / SSO アドレスに編集
+```
+
+GitHub への HTTPS アクセスは `gh` の credential helper を各自で一度だけ設定する
+（共有 `.gitconfig` には書かない。マシン固有の絶対パスが混入するのを避けるため）。
+
+```sh
+$ gh auth login   # 各自の ~/.gitconfig に credential helper が設定される
 ```
 
 git-lfs を使うリポジトリがある場合のみ、各自で有効化する。
@@ -69,7 +82,7 @@ fi
 | `.tmux.conf` | tmux 設定。プレフィックス `Ctrl+t`、ペイン分割 `prefix+h`（水平）/`prefix+v`（垂直）。コピー/ペーストは `pbcopy`/`pbpaste` 連携 |
 | `.config/nvim/init.lua` | neovim 設定（デフォルトエディタ）。プラグインなしの素設定（文字コード・インデント・キーマップ・ステータスライン・全角スペース可視化） |
 | `.config/nvim/colors/desert256.vim` | 同梱の配色（`colorscheme desert256`） |
-| `.gitconfig` | 共有の git 設定。個人 identity は `~/.gitconfig.local`、会社用は `~/.gitconfig.work`（`~/workspaces/` 配下）に分離 |
+| `.gitconfig` | 共有の git 設定。**symlink せず各自の `~/.gitconfig` から `[include]` で参照**。個人 identity は `~/.gitconfig.local`、会社用は `~/.gitconfig.work`（`~/workspaces/` 配下）に分離 |
 | `.gitattributes` | 改行正規化（`* text=auto`、`*.sh eol=lf`）等 |
 | `.gitignore_global` | グローバルな除外設定（`core.excludesfile` から参照） |
 | `bin/loadavg` | tmux ステータスバー用のロードアベレージ出力（`sysctl` ベース） |
@@ -90,4 +103,5 @@ $ ./setup.sh uninstall
 ```
 
 このリポジトリが張ったシンボリックリンクのみ削除する（実体ファイルや `.bak` は残す）。
-各操作は `remove` / `skip` と末尾サマリで表示される。
+各操作は `remove` / `skip` と末尾サマリで表示される。`~/.gitconfig` からは共有 `.gitconfig` への
+`[include]` 行だけを除去し、各自が設定した他の項目（gh の credential helper 等）は残す。

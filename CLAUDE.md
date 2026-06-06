@@ -21,6 +21,10 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
 - `setup.sh` は `dotfiles` 変数に列挙されたファイル/ディレクトリをリンクする。管理対象を増やすには
   このリストを更新する。`.config/nvim` のようなネストした宛先にも対応（install 時に親ディレクトリを
   作成してからリンク）。
+- `.gitconfig` だけは例外で `dotfiles` リストに含めず、symlink しない。各自の実体 `~/.gitconfig` に
+  共有 `.gitconfig` への `[include]` 行を書き込む方式（無ければ作成 / 既存なら先頭に追記 / 旧来の
+  symlink からは自動移行）。直接 symlink すると `git config --global`（`gh auth login` 等）の書き込みが
+  symlink を辿って追跡ファイルを汚すため。uninstall では include 行のみ除去する。
 - install/uninstall は各操作を `link` / `ok`（リンク済み）/ `backup` / `remove` / `skip` と末尾サマリで
   表示する。既存の実体ファイルは `~/<name>.bak` に退避してからリンクする。
 - 個人設定（管理対象外・各自で用意）:
@@ -37,8 +41,10 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
 - **`.config/nvim/init.lua`** — neovim 設定（デフォルトエディタ）。プラグインは使わず素の設定
   （文字コード、インデント、キーマップ、ステータスライン、全角スペース可視化）。配色は同梱の
   `.config/nvim/colors/desert256.vim`（`colorscheme desert256`）。
-- **`.gitconfig`** — 共有の Git 設定。identity は持たず、末尾で `~/.gitconfig.local` を include、
+- **`.gitconfig`** — 共有の Git 設定。symlink せず各自の `~/.gitconfig` から `[include]` で参照される
+  （上記セットアップ参照）。identity は持たず、末尾で `~/.gitconfig.local` を include、
   `~/workspaces/` 配下は `includeIf "gitdir:~/workspaces/"` で `~/.gitconfig.work` を include。
+  credential helper（gh 連携）も持たず、各自が `gh auth login` で自分の `~/.gitconfig` に設定する。
   alias（`st`、`df`、`co`、`b`、`pl`、`ps`）あり。
 - **`.gitconfig.local.example` / `.gitconfig.work.example`** — identity テンプレート（symlink しない）。
 - **`.gitattributes`** — 改行正規化（`* text=auto`、`*.sh eol=lf`）。`~/.gitattributes` に symlink。
