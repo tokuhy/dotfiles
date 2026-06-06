@@ -78,3 +78,6 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
   Claude Code 実行時（`CLAUDECODE=1`）は無効化して自動処理が確認プロンプトで止まらないようにする。
 - **コミットメッセージ**: Conventional Commits 形式。Claude 由来の署名・記述
   （`Co-Authored-By: Claude ...`、`🤖 Generated with Claude Code` など）を含めない。
+- **Markdown の強調と CJK 約物**: 日本語ドキュメントでは、太字 `**…**` の閉じ `**` が全角約物
+  （`）`・`」`・`。` 等）の直後に来ると CommonMark の右フランキング条件を満たさず太字が描画されない。
+  約物は強調の外に出す（`**ロケール（LANG）**は` ではなく `**ロケール**（LANG）は`）。
