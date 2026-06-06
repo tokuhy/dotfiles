@@ -84,16 +84,16 @@ opt.statusline = "%F%m%r%h%w %=[FMT=%{&ff}] [ENC=%{&fileencoding}] [TYPE=%Y] [PO
 local map = vim.keymap.set
 -- バッファの逆切り替え
 map("n", "<C-p>", "<ESC>:bp<CR>")
-map("", "<F2>", "<ESC>:bp<CR>")
-map("", "<space>p", "<ESC>:bp<CR>")
+map("n", "<F2>", "<ESC>:bp<CR>")
+map("n", "<space>p", "<ESC>:bp<CR>")
 -- バッファの順切り替え
 map("n", "<C-n>", "<ESC>:bn<CR>")
-map("", "<F3>", "<ESC>:bn<CR>")
-map("", "<space>n", "<ESC>:bn<CR>")
+map("n", "<F3>", "<ESC>:bn<CR>")
+map("n", "<space>n", "<ESC>:bn<CR>")
 -- 開いているファイルを閉じる
-map("", "<F4>", "<ESC>:bd<CR>")
-map("", "<space>w", "<ESC>:bd<CR>")
+map("n", "<F4>", "<ESC>:bd<CR>")
+map("n", "<space>w", "<ESC>:bd<CR>")
 -- 検索ハイライト解除
 map("n", "<ESC><ESC>", ":nohlsearch<CR>")
 -- 行番号表示トグル
-map("", "<F10>", ":set number!<CR>")
+map("n", "<F10>", ":set number!<CR>")
