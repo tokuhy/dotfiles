@@ -25,9 +25,14 @@ fi
 #     /: ディレクトリのみ残す
 #     .: 通常のファイルのみ残す
 
-# ホームディレクトリ配下にbinがあるときだけ追加
-path=(~/bin(N-/) $PATH)
+# 存在するディレクトリだけ PATH に追加する（(N-/) で不在ディレクトリは登録しない）
+path=(
+    ~/bin(N-/)         # 個人スクリプト
+    ~/.local/bin(N-/)  # claude
+    $path
+)
 
+# 初期化に eval / source が必要なものはディレクトリの有無でガードする
 # pyenv環境があれば実行
 if [ -d $HOME/.pyenv ];then
     export PATH="$HOME/.pyenv/bin:$PATH"
@@ -38,12 +43,6 @@ if [ -d $HOME/.rbenv ];then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)";
 fi
-
-# claude環境があれば
-if [ -d $HOME/.local/bin ];then
-    export PATH="$HOME/.local/bin:$PATH"
-fi
-
 # nvm環境があれば実行
 if [ -d $HOME/.nvm ];then
     export NVM_DIR="$HOME/.nvm"
