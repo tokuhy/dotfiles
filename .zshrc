@@ -145,8 +145,6 @@ setopt auto_cd
 setopt auto_pushd
 # ディレクトリスタックに同じディレクトリを追加しないようになる
 setopt pushd_ignore_dups
-# コマンド名のスペルミスを訂正する
-setopt correct
 # 補完候補を詰めて表示
 setopt list_packed
 # 補完候補が複数ある時に、一覧表示する
