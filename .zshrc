@@ -64,8 +64,6 @@ else
 fi
 
 ## alias設定
-# 補完前にaliasを展開する
-setopt complete_aliases
 
 alias where="command -v"
 alias j="jobs -l"
