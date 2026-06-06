@@ -1,0 +1,9 @@
+# 会社リポジトリ用の個人設定テンプレート。
+#   cp ~/dotfiles/.gitconfig.work.example ~/.gitconfig.work
+# としてコピーし、会社の name / SSO アドレスを編集する。
+# ~/workspaces/ 配下のリポジトリでのみ自動的に適用される
+# (共有 .gitconfig の [includeIf "gitdir:~/workspaces/"] から include)。
+
+[user]
+    name = Your Name
+    email = you@company.example
