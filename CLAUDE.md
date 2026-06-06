@@ -21,6 +21,9 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
 - `setup.sh` は `dotfiles` 変数に列挙されたファイル/ディレクトリをリンクする。管理対象を増やすには
   このリストを更新する。`.config/nvim` のようなネストした宛先にも対応（install 時に親ディレクトリを
   作成してからリンク）。
+- `bin` は丸ごとではなくファイル単位（`bin/loadavg`, `bin/tmuxx`）で列挙する。`~/bin` をディレクトリごと
+  symlink すると、既に `~/bin` を持つ環境で中身がまるごと `~/bin.bak` に退避されてしまうため。
+  `bin/` にスクリプトを増やしたらこのリストにも追記する。
 - `.gitconfig` だけは例外で `dotfiles` リストに含めず、symlink しない。各自の実体 `~/.gitconfig` に
   共有 `.gitconfig` への `[include]` 行を書き込む方式（無ければ作成 / 既存なら先頭に追記 / 旧来の
   symlink からは自動移行）。直接 symlink すると `git config --global`（`gh auth login` 等）の書き込みが

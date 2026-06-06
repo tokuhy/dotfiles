@@ -8,6 +8,9 @@ set -eu
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # home directory以下に symlink する dotfile を列挙
+# 注: bin は丸ごとではなくファイル単位（bin/loadavg, bin/tmuxx）で列挙する。
+#     ~/bin をディレクトリごと symlink すると、既に ~/bin を持つ環境では中身が
+#     まるごと ~/bin.bak に退避されてしまうため、個別ファイルだけをリンクする。
 # 注: .gitconfig はここに含めない。直接 symlink すると `git config --global`
 #     （gh auth login 等）の書き込みが symlink を辿って追跡ファイルを汚すため、
 #     各自の実体 ~/.gitconfig から include させる方式で別途扱う。
@@ -17,7 +20,8 @@ dotfiles="
 .gitattributes
 .gitignore_global
 .config/nvim
-bin
+bin/loadavg
+bin/tmuxx
 "
 
 # 共有 .gitconfig の絶対パス（各自の ~/.gitconfig から include させる）
