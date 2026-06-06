@@ -31,3 +31,5 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [include]
     path = ~/.gitconfig.local
+[includeIf "gitdir:~/workspaces/"]
+    path = ~/.gitconfig.work
