@@ -15,8 +15,8 @@ opt.ambiwidth = "double"
 -- 表示
 -----------------------------------------------------------
 vim.cmd("syntax on")
--- desert256 はサードパーティ配色（.config/nvim/colors/desert256.vim に同梱）
-pcall(vim.cmd.colorscheme, "desert256")
+-- desert は neovim 同梱の配色
+pcall(vim.cmd.colorscheme, "desert")
 
 opt.cursorline = true
 opt.cursorcolumn = true

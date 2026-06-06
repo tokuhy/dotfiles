@@ -85,8 +85,7 @@ fi
 |------|------|
 | `.zshrc` | zsh 設定。PATH・エイリアス・補完・プロンプト・履歴・キーバインド。エディタは `nvim` 優先・無ければ `vim`（`EDITOR` と `vim`/`vi` alias が連動） |
 | `.tmux.conf` | tmux 設定。プレフィックス `Ctrl+t`、ペイン分割 `prefix+h`（水平）/`prefix+v`（垂直）。コピー/ペーストは `pbcopy`/`pbpaste` 連携 |
-| `.config/nvim/init.lua` | neovim 設定（デフォルトエディタ）。プラグインなしの素設定（文字コード・インデント・キーマップ・ステータスライン・全角スペース可視化） |
-| `.config/nvim/colors/desert256.vim` | 同梱の配色（`colorscheme desert256`） |
+| `.config/nvim/init.lua` | neovim 設定（デフォルトエディタ）。プラグインなしの素設定（文字コード・インデント・キーマップ・ステータスライン・全角スペース可視化）。配色は neovim 同梱の `desert` |
 | `.gitconfig` | 共有の git 設定。**symlink せず各自の `~/.gitconfig` から `[include]` で参照**。個人 identity は `~/.gitconfig.local`、会社用は `~/.gitconfig.work`（`~/workspaces/` 配下）に分離 |
 | `.gitattributes` | 改行正規化（`* text=auto`、`*.sh eol=lf`）等 |
 | `.gitignore_global` | グローバルな除外設定（`core.excludesfile` から参照） |

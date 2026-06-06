@@ -42,8 +42,8 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
 - **`.tmux.conf`** — tmux 設定。プレフィックス `Ctrl+t`、ペイン分割 `prefix+h`（水平）/ `prefix+v`（垂直）。
   コピー/ペーストは macOS の `pbcopy` / `pbpaste` 連携。
 - **`.config/nvim/init.lua`** — neovim 設定（デフォルトエディタ）。プラグインは使わず素の設定
-  （文字コード、インデント、キーマップ、ステータスライン、全角スペース可視化）。配色は同梱の
-  `.config/nvim/colors/desert256.vim`（`colorscheme desert256`）。
+  （文字コード、インデント、キーマップ、ステータスライン、全角スペース可視化）。配色は neovim 同梱の
+  `desert`（`colorscheme desert`）。
 - **`.gitconfig`** — 共有の Git 設定。symlink せず各自の `~/.gitconfig` から `[include]` で参照される
   （上記セットアップ参照）。identity は持たず、末尾で `~/.gitconfig.local` を include、
   `~/workspaces/` 配下は `includeIf "gitdir:~/workspaces/"` で `~/.gitconfig.work` を include。
