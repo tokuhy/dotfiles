@@ -200,9 +200,10 @@ setopt hist_reduce_blanks
 
 # 補完機能
 # コマンド補完の必須設定（1日1回だけ ~/.zcompdump を再生成し、以降は高速スキップ）
+# -i: insecure directories（group-writable な Homebrew completion 等）を警告/プロンプトせず無視する
 autoload -Uz compinit
 if [ "$(date +%j)" != "$(date -r ~/.zcompdump +%j 2>/dev/null)" ]; then
-    compinit
+    compinit -i
 else
     compinit -C
 fi
