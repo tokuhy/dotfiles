@@ -56,7 +56,7 @@ fi
 typeset -U path cdpath fpath manpath
 
 # editor
-export EDITOR=/usr/bin/vim
+export EDITOR=nvim
 
 ## alias設定
 # 補完前にaliasを展開する
@@ -88,7 +88,8 @@ alias df="df -h"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 alias less="less -R"
 alias g="git "
 alias be="bundle exec"
