@@ -112,6 +112,7 @@ case ${1:-} in
     fi
     ;;
 *)
-    echo "option is [install/uninstall]"
+    echo "option is [install/uninstall]" >&2
+    exit 1
     ;;
 esac
