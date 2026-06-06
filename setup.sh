@@ -15,7 +15,7 @@ dotfiles="
 .tmux.conf
 .gitconfig
 .gitattributes
-.gitignore
+.gitignore_global
 .config/nvim
 bin
 "

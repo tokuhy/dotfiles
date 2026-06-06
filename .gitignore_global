@@ -1,0 +1,19 @@
+# グローバルな git 除外設定（~/.gitignore_global に symlink され core.excludesfile から参照）
+# OS・エディタ・ツールが生成する、どのリポジトリでも追跡したくないファイルを列挙する。
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Editor / IDE
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Tools
+**/.claude/settings.local.json
+.python-version
