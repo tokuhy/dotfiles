@@ -9,7 +9,7 @@ macOS（Apple Silicon / zsh）向けの個人用 dotfiles。設定ファイル�
 - macOS（Apple Silicon 前提）
 - zsh
 - [Homebrew](https://brew.sh/)
-- 推奨ツール: `nvim`（neovim / デフォルトエディタ）, `tmux`
+- 推奨ツール: `nvim`（neovim / デフォルトエディタ。未導入なら `vim` にフォールバック）, `tmux`
 - 任意: `git-lfs`（LFS を使うリポジトリがある場合のみ）
 
 ## インストール
@@ -65,7 +65,7 @@ fi
 
 | パス | 内容 |
 |------|------|
-| `.zshrc` | zsh 設定。PATH・エイリアス・補完・プロンプト・履歴・キーバインド。`EDITOR=nvim`、`vim`/`vi` は `nvim` の alias |
+| `.zshrc` | zsh 設定。PATH・エイリアス・補完・プロンプト・履歴・キーバインド。エディタは `nvim` 優先・無ければ `vim`（`EDITOR` と `vim`/`vi` alias が連動） |
 | `.tmux.conf` | tmux 設定。プレフィックス `Ctrl+t`、ペイン分割 `prefix+h`（水平）/`prefix+v`（垂直）。コピー/ペーストは `pbcopy`/`pbpaste` 連携 |
 | `.config/nvim/init.lua` | neovim 設定（デフォルトエディタ）。プラグインなしの素設定（文字コード・インデント・キーマップ・ステータスライン・全角スペース可視化） |
 | `.config/nvim/colors/desert256.vim` | 同梱の配色（`colorscheme desert256`） |
