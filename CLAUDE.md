@@ -60,6 +60,9 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
 - **個人/マシン固有設定の分離**: 共有ファイルに個人データを書かない。zsh は `~/.zshrc.mine`、
   git identity は `~/.gitconfig.local`（会社用は `~/workspaces/` 配下＋`~/.gitconfig.work`）に置く。
 - **macOS（Apple Silicon）前提**: Homebrew は `/opt/homebrew/bin/brew shellenv` で初期化。
+- **ロケール（`LANG`）は soft default**: `export LANG="${LANG:-ja_JP.UTF-8}"` とし、環境が設定済みなら
+  尊重し未設定時のみ日本語にフォールバック（将来の非日本語ユーザー展開を見越す）。`LC_ALL` は固定しない
+  （環境尊重を損なうため）。各自の上書きは `~/.zshrc.mine`。
 - **条件付き PATH エントリ**: `(N-/)` の glob 修飾子（例: `path=(~/bin(N-/) $path)`）で、存在しない
   ディレクトリを黙ってスキップさせる。
 - **ツールの存在チェック**: pyenv / rbenv / nvm / Homebrew 等を有効化する前に、`if [ -d ... ]`

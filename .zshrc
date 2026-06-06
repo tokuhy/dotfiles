@@ -1,5 +1,6 @@
-# 言語設定
-export LANG=ja_JP.UTF-8
+# 言語設定: 環境が LANG を設定済みならそれを尊重し、未設定ならチーム既定の日本語にフォールバック
+# （非日本語ユーザーはターミナル/OS のロケールがそのまま生きる。明示上書きは ~/.zshrc.mine で）
+export LANG="${LANG:-ja_JP.UTF-8}"
 # 環境設定
 export PAGER=less
 
