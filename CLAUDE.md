@@ -44,6 +44,9 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
 - **`.config/nvim/init.lua`** — neovim 設定（デフォルトエディタ）。プラグインは使わず素の設定
   （文字コード、インデント、キーマップ、ステータスライン、全角スペース可視化）。配色は neovim 同梱の
   `desert`（`colorscheme desert`）。
+- **`.config/npm/npmrc`** — 共有の npm 設定。`.zshrc` の `NPM_CONFIG_GLOBALCONFIG` 経由で npm の
+  globalconfig として読み込むハードニング（`ignore-scripts`/`engine-strict`/`save-exact` 等）。秘密は
+  持たず（token は `${ENV}` 参照のみ）、個人/token は userconfig（`~/.npmrc`・管理対象外）に分離。
 - **`.gitconfig`** — 共有の Git 設定。symlink せず各自の `~/.gitconfig` から `[include]` で参照される
   （上記セットアップ参照）。identity は持たず、末尾で `~/.gitconfig.local` を include、
   `~/workspaces/` 配下は `includeIf "gitdir:~/workspaces/"` で `~/.gitconfig.work` を include。
@@ -63,6 +66,9 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
   一時/スワップファイル（`.DS_Store`、`*~`、`*.swp` 等）だけを置く。IDE 設定（`.vscode/`・`.idea/`）や
   言語バージョン固定（`.python-version`）は共有/コミットしたいかがプロジェクトで分かれるため、
   グローバルでは無視せず各プロジェクトの `.gitignore` で扱う。
+- **npm の秘密分離**: 共有 `.config/npm/npmrc`（npm の globalconfig として読む）には authToken 等の
+  秘密を書かない（token は `${ENV}` 参照のみ）。`npm login` 等が書き込むのは userconfig（`~/.npmrc`・
+  管理対象外）で共有ファイルは汚れない。`.gitconfig` の credential を共有しない方針と同じ。
 - **macOS（Apple Silicon）前提**: Homebrew は `/opt/homebrew/bin/brew shellenv` で初期化。
 - **ロケール（`LANG`）は soft default**: `export LANG="${LANG:-ja_JP.UTF-8}"` とし、環境が設定済みなら
   尊重し未設定時のみ日本語にフォールバック（将来の非日本語ユーザー展開を見越す）。`LC_ALL` は固定しない

@@ -86,6 +86,7 @@ fi
 | `.zshrc` | zsh 設定。PATH・エイリアス・補完・プロンプト・履歴・キーバインド。エディタは `nvim` 優先・無ければ `vim`（`EDITOR` と `vim`/`vi` alias が連動） |
 | `.tmux.conf` | tmux 設定。プレフィックス `Ctrl+t`、ペイン分割 `prefix+h`（水平）/`prefix+v`（垂直）。コピー/ペーストは `pbcopy`/`pbpaste` 連携 |
 | `.config/nvim/init.lua` | neovim 設定（デフォルトエディタ）。プラグインなしの素設定（文字コード・インデント・キーマップ・ステータスライン・全角スペース可視化）。配色は neovim 同梱の `desert` |
+| `.config/npm/npmrc` | 共有の npm 設定。`.zshrc` の `NPM_CONFIG_GLOBALCONFIG` 経由で globalconfig として読み込むハードニング設定。**秘密は持たない**（token は `${ENV}` 参照のみ）。個人/token は `~/.npmrc`（userconfig・管理対象外）に分離 |
 | `.gitconfig` | 共有の git 設定。**symlink せず各自の `~/.gitconfig` から `[include]` で参照**。個人 identity は `~/.gitconfig.local`、会社用は `~/.gitconfig.work`（`~/workspaces/` 配下）に分離 |
 | `.gitattributes` | 改行正規化（`* text=auto`、`*.sh eol=lf`）等 |
 | `.gitignore_global` | グローバルな除外設定（`core.excludesfile` から参照） |
@@ -102,6 +103,40 @@ fi
   場合は `~/.zshrc.mine` で `export LANG=en_US.UTF-8` のように上書きする。
 - **管理対象を増やす**には `setup.sh` の `dotfiles` リストにパスを追加する。`.config/nvim` のような
   ネストしたパスにも対応している。
+
+## npm 設定
+
+`.config/npm/npmrc` を npm の **globalconfig** として読み込み（`.zshrc` が `NPM_CONFIG_GLOBALCONFIG`
+を設定）、`~/.npmrc`（**userconfig**・管理対象外）は個人設定・認証トークン専用に分ける。`.gitconfig`
+と同じく**共有ファイルに秘密を持たせない**設計。
+
+- 共有 `.config/npm/npmrc` には supply-chain ハードニング（`ignore-scripts` 等）と registry 既定だけを
+  置き、**authToken 等の秘密は書かない**（token は `${ENV}` 参照のみ）。
+- `npm login` / `npm config set` の書き込み先は userconfig（`~/.npmrc`）なので、共有ファイルは汚れない。
+  token は `npm login` を使わず env 変数で渡すのを推奨。
+
+### private registry の token（利用する場合）
+
+共有 `.config/npm/npmrc` の scoped registry 例を実値に置き換え、token は `~/.zshrc.mine`（管理対象外）の
+env 変数で渡す。実体は macOS Keychain に置くと平文を残さない。
+
+```sh
+# 一度だけ: Keychain に保存
+$ security add-generic-password -s npm-github -a "$USER" -w
+# ~/.zshrc.mine
+export NPM_TOKEN_GITHUB="$(security find-generic-password -s npm-github -w 2>/dev/null)"
+```
+
+### 既存 `~/.npmrc` の移行
+
+共有へ移したキー（`engine-strict` / `ignore-scripts` / `audit` / `min-release-age` 等）が `~/.npmrc` にも
+残っている場合は削除し、`~/.npmrc` は個人/token 専用にする（userconfig が globalconfig を上書きするため、
+古い重複が残ると共有設定の更新が効かなくなる）。
+
+### 注意: `ignore-scripts=true`
+
+依存の install スクリプトを実行しないため、native build を持つパッケージ（esbuild / sharp 等）は
+`npm rebuild <pkg>` などが別途必要になることがある。
 
 ## アンインストール
 
