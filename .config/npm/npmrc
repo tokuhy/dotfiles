@@ -13,8 +13,6 @@ ignore-scripts=true
 audit=true
 # min-release-age: 公開直後の版を避け、侵害版が出回る窓を回避する
 min-release-age=1
-# save-exact: 追加時に ^ を付けず厳密版で固定（レビュー済みの版を保つ）
-save-exact=true
 
 # --- registry（dependency confusion 対策）---
 # 既定 registry は公開 npm を明示する

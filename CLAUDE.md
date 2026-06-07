@@ -45,7 +45,7 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
   （文字コード、インデント、キーマップ、ステータスライン、全角スペース可視化）。配色は neovim 同梱の
   `desert`（`colorscheme desert`）。
 - **`.config/npm/npmrc`** — 共有の npm 設定。`.zshrc` の `NPM_CONFIG_GLOBALCONFIG` 経由で npm の
-  globalconfig として読み込むハードニング（`ignore-scripts`/`engine-strict`/`save-exact` 等）。秘密は
+  globalconfig として読み込むハードニング（`ignore-scripts`/`engine-strict` 等）。秘密は
   持たず（token は `${ENV}` 参照のみ）、個人/token は userconfig（`~/.npmrc`・管理対象外）に分離。
 - **`.gitconfig`** — 共有の Git 設定。symlink せず各自の `~/.gitconfig` から `[include]` で参照される
   （上記セットアップ参照）。identity は持たず、末尾で `~/.gitconfig.local` を include、
