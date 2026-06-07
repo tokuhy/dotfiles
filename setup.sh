@@ -20,6 +20,7 @@ dotfiles="
 .gitattributes
 .gitignore_global
 .config/nvim
+.config/npm/npmrc
 bin/loadavg
 bin/tmuxx
 "

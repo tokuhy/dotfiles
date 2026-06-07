@@ -3,6 +3,8 @@
 export LANG="${LANG:-ja_JP.UTF-8}"
 # 環境設定
 export PAGER=less
+# npm: 共有ハードニング設定を globalconfig として読み込む（個人/token は ~/.npmrc に分離）
+[ -f ~/.config/npm/npmrc ] && export NPM_CONFIG_GLOBALCONFIG="$HOME/.config/npm/npmrc"
 
 # Homebrew: PATH/MANPATH等を設定
 # brewのフルパスで呼ぶのでPATHが未通でも動く（type brewのチェックより確実）
