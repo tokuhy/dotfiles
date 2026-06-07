@@ -1,0 +1,26 @@
+# 共有 npm 設定。NPM_CONFIG_GLOBALCONFIG 経由で npm の globalconfig として読み込む。
+# 個人/秘密は userconfig (~/.npmrc) 側に置く。このファイルには authToken 等の秘密を絶対に書かない。
+# token が必要な場合も ${ENV} 参照のみとし、実体は ~/.zshrc.mine か macOS Keychain に置く。
+# 注: npm の ini パーサは行頭コメント (#) のみ。値の後ろのインラインコメントは値に混入するため使わない。
+
+# --- supply-chain ハードニング ---
+# engine-strict: package.json の engines を満たさなければインストールを失敗させる
+engine-strict=true
+# ignore-scripts: 依存の lifecycle script 自動実行を抑止（最重要のサプライチェーン防御）
+# 注: native build を持つパッケージは `npm rebuild` 等が必要になる
+ignore-scripts=true
+# audit: インストール時に既知脆弱性を監査
+audit=true
+# min-release-age: 公開直後の版を避け、侵害版が出回る窓を回避する
+min-release-age=1
+# save-exact: 追加時に ^ を付けず厳密版で固定（レビュー済みの版を保つ）
+save-exact=true
+
+# --- registry（dependency confusion 対策）---
+# 既定 registry は公開 npm を明示する
+registry=https://registry.npmjs.org/
+# private scope は信頼 registry に固定する（org 固有・実値に置換して有効化）。
+# token は ${ENV} 参照のみ（実体は ~/.zshrc.mine / Keychain。リテラルは書かない）。
+# 例: GitHub Packages
+#@your-org:registry=https://npm.pkg.github.com
+#//npm.pkg.github.com/:_authToken=${NPM_TOKEN_GITHUB}
