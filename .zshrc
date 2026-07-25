@@ -35,7 +35,8 @@ path=(
     $path
 )
 
-# gcloud（Homebrew cask gcloud-cli）: components 由来の追加バイナリ（gcloud-crc32c 等）用。
+# gcloud（Homebrew cask gcloud-cli）: /opt/homebrew/bin に symlink されないバイナリ用
+# （同梱の gcloud-crc32c 等と、gcloud components install で後から追加した分）。
 # gcloud / bq / gsutil 本体は /opt/homebrew/bin の symlink を正とするので末尾に足す
 path+=(/opt/homebrew/share/google-cloud-sdk/bin(N-/))
 
