@@ -77,6 +77,17 @@ SSH 鍵など）はリポジトリに含めず各自のローカルファイル�
   ディレクトリを黙ってスキップさせる。
 - **ツールの存在チェック**: pyenv / rbenv / nvm / Homebrew 等を有効化する前に、`if [ -d ... ]`
   （ディレクトリ確認）や `if [ -x ... ]`（実行ファイル確認）でガードする。
+- **gcloud は Homebrew cask で管理**: `gcloud-cli` cask を使い、公式インストーラー版の
+  `~/google-cloud-sdk` は置かない。公式版は rc ファイルに `path.zsh.inc` の source を追記して PATH
+  先頭に割り込むため、Homebrew 版と共存すると古い方が勝つ。`gcloud` / `bq` / `gsutil` 本体は
+  `/opt/homebrew/bin` の symlink を正とし、`/opt/homebrew/share/google-cloud-sdk/bin` は
+  `gcloud-crc32c` 等の未 symlink バイナリ用に PATH の**末尾**へ足す（`brew upgrade` の過渡状態でも
+  Homebrew 管理の symlink が優先されるように）。
+- **gcloud 補完は明示的に source する**: `completion.zsh.inc` は `#compdef` を持たず `bashcompinit` で
+  `complete -F` 登録する形式のため、`fpath`（`brew shellenv` が通す `share/zsh/site-functions`）に
+  symlink されていても `compinit` のスキャンでは `_comps` に登録されない。`compinit` の**後**に
+  `. /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc` を実行する必要がある。
+  効いているかは `echo $_comps[gcloud]` が空でないことで確認する。
 - **エディタ**: neovim を優先し、未導入なら vim にフォールバック（`type nvim` で判定して `EDITOR` を
   `nvim`/`vim` に設定、`vim`/`vi` alias は解決済みの `$EDITOR` を参照）。git のコミットエディタも
   `EDITOR` を継承。neovim 設定はプラグインを使わない方針。

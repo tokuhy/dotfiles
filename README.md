@@ -68,6 +68,17 @@ git-lfs を使うリポジトリがある場合のみ、各自で有効化する
 $ git lfs install
 ```
 
+Google Cloud SDK を使う場合は Homebrew cask で入れる。公式インストーラー版は使わない
+（rc ファイルに PATH 追記を挿し込むため、Homebrew 版と共存すると古い方が優先されてしまう）。
+
+```sh
+$ brew install --cask gcloud-cli
+$ gcloud auth login
+```
+
+`.zshrc` 側で PATH（`gcloud-crc32c` 等の追加バイナリ用）とシェル補完を設定済みなので、
+インストール後に rc ファイルを触る必要はない。
+
 SSH 鍵の読み込み（keychain）などマシン固有の設定は `~/.zshrc.mine`（管理対象外）に置く。
 `.zshrc` が末尾で読み込む。例:
 
