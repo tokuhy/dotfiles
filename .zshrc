@@ -35,6 +35,10 @@ path=(
     $path
 )
 
+# gcloud（Homebrew cask gcloud-cli）: components 由来の追加バイナリ（gcloud-crc32c 等）用。
+# gcloud / bq / gsutil 本体は /opt/homebrew/bin の symlink を正とするので末尾に足す
+path+=(/opt/homebrew/share/google-cloud-sdk/bin(N-/))
+
 # 初期化に eval / source が必要なものはディレクトリの有無でガードする
 # pyenv環境があれば実行
 if [ -d $HOME/.pyenv ];then
@@ -210,6 +214,12 @@ else
 fi
 # 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
+
+# gcloud 補完（Homebrew cask gcloud-cli）
+# completion.zsh.inc は #compdef を持たず bashcompinit で complete -F 登録する形式のため、
+# fpath に置いても compinit のスキャンでは拾われない。compinit の後に明示的に source する
+[ -f /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc ] \
+    && . /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc
 # zsh editor
 autoload zed
 
